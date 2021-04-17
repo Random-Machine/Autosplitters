@@ -76,6 +76,8 @@ init
 	case "1837A42D913BB7DAF94FEF3163BA615A":
             version = "v1.06.329";
             break;
+	    
+	// Uplay 1.06.329 Version?
         case "77D09E2A3DAAABBFEE4F3466F52A5794":
             version = "v1.06.329";
             break;
