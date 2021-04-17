@@ -66,6 +66,7 @@ startup
 		vars.lastSplitTime = System.DateTime.Now;
 		return !isDoubleSplit;
 	};
+	vars.isNotDoubleSplit = isNotDoubleSplit;
 }
 
 init
