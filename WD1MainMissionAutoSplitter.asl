@@ -85,7 +85,6 @@ init
     }
 }
 
-
 split{ 
 	if(current.act1mainmissions == old.act1mainmissions+1)
 		return vars.isNotDoubleSplit();
