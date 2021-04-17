@@ -90,39 +90,45 @@ init
 
 
 split{ 
+	if (version == "") {
+		return false;
+	}
+
 	// v1.04.497
-	if(current.act1mainmissions1 == old.act1mainmissions1+1)
-		return vars.isNotDoubleSplit();
+	if (version == "v1.04.497") {
+		if(current.act1mainmissions1 == old.act1mainmissions1+1)
+			return vars.isNotDoubleSplit();
 
-	if(current.act1mainmissions2 == old.act1mainmissions2+1)
-		return vars.isNotDoubleSplit(); 
+		if(current.act1mainmissions2 == old.act1mainmissions2+1)
+			return vars.isNotDoubleSplit(); 
 
-	if(current.act2mainmissions1 == old.act2mainmissions1+1)
-		return vars.isNotDoubleSplit();
+		if(current.act2mainmissions1 == old.act2mainmissions1+1)
+			return vars.isNotDoubleSplit();
 
-	if(current.act2mainmissions2 == old.act2mainmissions2+1)
-		return vars.isNotDoubleSplit();
+		if(current.act2mainmissions2 == old.act2mainmissions2+1)
+			return vars.isNotDoubleSplit();
 
-	if(current.act2mainmissions3 == old.act2mainmissions3+1)
-		return vars.isNotDoubleSplit();
+		if(current.act2mainmissions3 == old.act2mainmissions3+1)
+			return vars.isNotDoubleSplit();
 
-	if(current.act2mainmissions4 == old.act2mainmissions4+1)
-		return vars.isNotDoubleSplit();
+		if(current.act2mainmissions4 == old.act2mainmissions4+1)
+			return vars.isNotDoubleSplit();
 
-	if(current.act2mainmissions5 == old.act2mainmissions5+1)
-		return vars.isNotDoubleSplit();
+		if(current.act2mainmissions5 == old.act2mainmissions5+1)
+			return vars.isNotDoubleSplit();
 
-	if(current.act2mainmissions6 == old.act2mainmissions6+1)
-		return vars.isNotDoubleSplit();
-
+		if(current.act2mainmissions6 == old.act2mainmissions6+1)
+			return vars.isNotDoubleSplit();
+	}
 
 	// v1.06.329
-	if(current.act1mainmissions == old.act1mainmissions+1)
-		return vars.isNotDoubleSplit();
+	if (version == "v1.04.497") {
+		if(current.act1mainmissions == old.act1mainmissions+1)
+			return vars.isNotDoubleSplit();
 
-	if(current.act2mainmissions == old.act2mainmissions+1)
-		return vars.isNotDoubleSplit(); 
-
+		if(current.act2mainmissions == old.act2mainmissions+1)
+			return vars.isNotDoubleSplit(); 
+	}
 
 	// Common
 	if(current.act3mainmissions == old.act3mainmissions+1)
