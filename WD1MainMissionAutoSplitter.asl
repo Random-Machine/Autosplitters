@@ -28,8 +28,6 @@ state("Watch_Dogs" , "v1.06.329 Oct 2014")
 
 state("Watch_Dogs" , "v1.06.329 2019")
 {
-	//Memory values were obtained from Steam's latest version
-
 	int act1mainmissions: "Disrupt_b64.dll", 0x3B70098, 0x10, 0x78, 0x98, 0xEC4;
 
 	int act2mainmissions: "Disrupt_b64.dll", 0x3B70098, 0x40, 0x48, 0x168, 0x3B4;
