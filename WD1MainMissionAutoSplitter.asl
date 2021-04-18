@@ -3,7 +3,8 @@ state("Watch_Dogs")
     // unknown/default version
 }
 
-state("Watch_Dogs" , "v1.04.497") {
+state("Watch_Dogs" , "v1.04.497") 
+{
 	int act1mainmissions: "Disrupt_b64.dll", 0x3950830, 0xA8, 0x18, 0xC8, 0x18, 0x180, 0x98, 0xC24 ;
 
 	int act2mainmissions: "Disrupt_b64.dll", 0x3950830, 0x10, 0x48, 0x38, 0x98, 0x2C4;
@@ -13,7 +14,19 @@ state("Watch_Dogs" , "v1.04.497") {
 	int act4mainmissions: "Disrupt_b64.dll", 0x3950830,  0x58, 0x78, 0x98, 0x954;
 }
 
-state("Watch_Dogs" , "v1.06.329")
+
+state("Watch_Dogs" , "v1.06.329 Oct 2014") 
+{
+    int act1mainmissions: "Disrupt_b64.dll", 0x3A48A20, 0xE0, 0x1E8, 0xE8, 0x98, 0xEC4;
+
+    int act2mainmissions: "Disrupt_b64.dll", 0x3A48A20, 0xE0, 0x1E8, 0xE8, 0x98, 0x3B4;
+
+    int act3mainmissions: "Disrupt_b64.dll", 0x3A48A20, 0x110, 0x1F8, 0x98, 0x7D4;
+
+    int act4mainmissions: "Disrupt_b64.dll", 0x3A48A20, 0xE0, 0x38, 0x18, 0x180, 0x98, 0xB64;
+
+
+state("Watch_Dogs" , "v1.06.329 2019") //Memory values were obtained in Steam's latest version
 {
 	int act1mainmissions: "Disrupt_b64.dll", 0x3B70098, 0x10, 0x78, 0x98, 0xEC4;
 
@@ -73,13 +86,15 @@ init
         case "C3B1AD89FCCC74FE9C5BC5050A233308":
             version = "v1.04.497";
             break;
+	case "21253702FA2EF0543B45905426D74375":
+            version = "v1.06.329 Oct 2014";
+            break;  
 	case "1837A42D913BB7DAF94FEF3163BA615A":
-            version = "v1.06.329";
+            version = "v1.06.329 2019";
             break;
 	    
-	// Uplay 1.06.329 Version?
-        case "77D09E2A3DAAABBFEE4F3466F52A5794":
-            version = "v1.06.329";
+        case "77D09E2A3DAAABBFEE4F3466F52A5794": 
+            version = "v1.06.329 2019"; // Uplay latest version may not work with these memory values
             break;
         default:
             throw new NotImplementedException("Unrecognized hash: " + hash);
