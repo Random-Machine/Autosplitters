@@ -27,7 +27,7 @@ The mission counters in this game are displayed in the progression menu, and eac
 3.  Load save file into the end of A2M12 (A Risky Bid). Scan for an exact value of 11 (because we have 11 missions completed).
 4.  Play until finishing A2M14 (Planting a Bug) and keep scanning next to match the Act 2 mission counter value after each mission has been completed (it will be 14 in the end).
 5.  There should be 6 addresses left unlike in Act 1. Add half of them into the addresslist and pointer scan each one. 
-6.  Look for the pointer paths with disrupt_b64.dll and the same offset at the end between the different addresses. Those will probably work. 
+6.  Look for the pointer paths with disrupt_b64.dll and the same offset at the end between the different addresses. Those will probably work. Ideally, the base address will be the same as the Act 1 one.
 7.  Choose a pointer path in the pointer scan menu with the fewest offsets.
 
 ### Act 3
@@ -36,7 +36,7 @@ The mission counters in this game are displayed in the progression menu, and eac
 3.  Load save file into the end of A3M3 (Unstoppable Force). Scan for an exact value of 2 (because we have 2 missions completed).
 4.  Play until finishing A3M5 (For the Portfolio) and keep scanning next to match the Act 3 mission counter value after each mission has been completed (it will be 5 in the end).
 5.  There should be 6 addresses left unlike in Act 1. Add half of them into the addresslist and pointer scan each one. 
-6.  Look for the pointer paths with disrupt_b64.dll and the same offset at the end between the different addresses. Those will probably work. 
+6.  Look for the pointer paths with disrupt_b64.dll and the same offset at the end between the different addresses. Those will probably work. Ideally, the base address will be the same as the Act 1 one.
 7.  Choose a pointer path in the pointer scan menu with the fewest offsets.
 
 ### Act 4
@@ -45,5 +45,5 @@ The mission counters in this game are displayed in the progression menu, and eac
 3.  Load save file into the end of A4M4 (Defalt Condition). Scan for an exact value of 3 (because we have 3 missions completed).
 4.  Play until finishing A4M6 (Ghosts of the Past) and keep scanning next to match the Act 4 mission counter value after each mission has been completed (it will be 6 in the end).
 5.  There should be 6 addresses left unlike in Act 1. Add half of them into the addresslist and pointer scan each one. 
-6.  Look for the pointer paths with disrupt_b64.dll and the same offset at the end between the different addresses. Those will probably work. 
+6.  Look for the pointer paths with disrupt_b64.dll and the same offset at the end between the different addresses. Those will probably work. Ideally, the base address will be the same as the Act 1 one.
 7.  Choose a pointer path in the pointer scan menu with the fewest offsets.
