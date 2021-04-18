@@ -17,17 +17,19 @@ state("Watch_Dogs" , "v1.04.497")
 
 state("Watch_Dogs" , "v1.06.329 Oct 2014") 
 {
-    int act1mainmissions: "Disrupt_b64.dll", 0x3A48A20, 0xE0, 0x1E8, 0xE8, 0x98, 0xEC4;
+    	int act1mainmissions: "Disrupt_b64.dll", 0x3A48A20, 0xE0, 0x1E8, 0xE8, 0x98, 0xEC4;
 
-    int act2mainmissions: "Disrupt_b64.dll", 0x3A48A20, 0xE0, 0x1E8, 0xE8, 0x98, 0x3B4;
+	int act2mainmissions: "Disrupt_b64.dll", 0x3A48A20, 0xE0, 0x1E8, 0xE8, 0x98, 0x3B4;
 
-    int act3mainmissions: "Disrupt_b64.dll", 0x3A48A20, 0x110, 0x1F8, 0x98, 0x7D4;
+    	int act3mainmissions: "Disrupt_b64.dll", 0x3A48A20, 0x110, 0x1F8, 0x98, 0x7D4;
 
-    int act4mainmissions: "Disrupt_b64.dll", 0x3A48A20, 0xE0, 0x38, 0x18, 0x180, 0x98, 0xB64;
+    	int act4mainmissions: "Disrupt_b64.dll", 0x3A48A20, 0xE0, 0x38, 0x18, 0x180, 0x98, 0xB64;
 
 
-state("Watch_Dogs" , "v1.06.329 2019") //Memory values were obtained in Steam's latest version
+state("Watch_Dogs" , "v1.06.329 2019") 
 {
+	//Memory values were obtained in Steam's latest version
+	
 	int act1mainmissions: "Disrupt_b64.dll", 0x3B70098, 0x10, 0x78, 0x98, 0xEC4;
 
 	int act2mainmissions: "Disrupt_b64.dll", 0x3B70098, 0x40, 0x48, 0x168, 0x3B4;
