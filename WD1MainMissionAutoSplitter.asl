@@ -93,8 +93,8 @@ init
             version = "v1.06.329 2019";
             break;
 	    
-        case "77D09E2A3DAAABBFEE4F3466F52A5794": 
-            version = "v1.06.329 2019"; // Uplay latest version may not work with these memory values
+        case "77D09E2A3DAAABBFEE4F3466F52A5794": //Uplay Hash
+            version = "v1.06.329 2019"; // Uplay's or Epic's latest version may not work with these memory values
             break;
         default:
             throw new NotImplementedException("Unrecognized hash: " + hash);
