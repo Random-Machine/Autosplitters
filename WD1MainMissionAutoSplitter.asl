@@ -14,7 +14,6 @@ state("Watch_Dogs" , "v1.04.497")
 	int act4mainmissions: "Disrupt_b64.dll", 0x3950830,  0x58, 0x78, 0x98, 0x954;
 }
 
-
 state("Watch_Dogs" , "v1.06.329 Oct 2014") 
 {
     	int act1mainmissions: "Disrupt_b64.dll", 0x3A48A20, 0xE0, 0x1E8, 0xE8, 0x98, 0xEC4;
@@ -26,10 +25,8 @@ state("Watch_Dogs" , "v1.06.329 Oct 2014")
     	int act4mainmissions: "Disrupt_b64.dll", 0x3A48A20, 0xE0, 0x38, 0x18, 0x180, 0x98, 0xB64;
 }
 
-state("Watch_Dogs" , "v1.06.329 2019")
+state("Watch_Dogs" , "v1.06.329 Steam Latest")
 {
-	//Memory values were obtained from Steam's latest version
-
 	int act1mainmissions: "Disrupt_b64.dll", 0x3B70098, 0x10, 0x78, 0x98, 0xEC4;
 
 	int act2mainmissions: "Disrupt_b64.dll", 0x3B70098, 0x40, 0x48, 0x168, 0x3B4;
@@ -38,6 +35,18 @@ state("Watch_Dogs" , "v1.06.329 2019")
 
 	int act4mainmissions: "Disrupt_b64.dll", 0x3B70098, 0x10, 0x48, 0x98, 0xB64;
 }
+
+state("Watch_Dogs" , "v1.06.329 Uplay Latest")
+{
+	int act1mainmissions: "Disrupt_b64.dll", 0x3B91918, 0xE0, 0x1E8, 0x98, 0xEC4;
+
+	int act2mainmissions: "Disrupt_b64.dll", 0x3B91918, 0x110, 0x1F8, 0x168, 0x3B4;
+
+	int act3mainmissions: "Disrupt_b64.dll", 0x3B91918, 0xE0, 0xC8, 0x18, 0x180, 0x98, 0x7D4;
+
+	int act4mainmissions: "Disrupt_b64.dll", 0x3B91918, 0xE0, 0x1E8, 0x98, 0xB64;
+}
+
 
 startup
 {
@@ -92,11 +101,10 @@ init
             version = "v1.06.329 Oct 2014";
             break;  
 	case "1837A42D913BB7DAF94FEF3163BA615A":
-            version = "v1.06.329 2019";
-            break;
-	    
-        case "77D09E2A3DAAABBFEE4F3466F52A5794": //Uplay Hash
-            version = "v1.06.329 2019"; // Uplay's or Epic's latest version may not work with these memory values
+            version = "v1.06.329 Steam Latest";
+            break;    
+        case "77D09E2A3DAAABBFEE4F3466F52A5794":
+            version = "v1.06.329 Uplay Latest"; 
             break;
         default:
             throw new NotImplementedException("Unrecognized hash: " + hash);
