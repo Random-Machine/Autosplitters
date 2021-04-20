@@ -3,11 +3,18 @@
 In the LiveSplit splits editor, make sure your game is set to Watch_Dogs and then click the "Activate" button.
 
 ## How it Works
-Starting and ending splits still have to be done manually. The autosplitter should split whenever the mission counter in Act 1, 2, 3, or 4 goes up. For most missions, this will be after the mission complete text has shown up and dissapeared. Some missions like Collateral in Act 2 will split earlier because those missions behave differently. 
+**Starting and ending splits still have to be done manually.** The autosplitter should split whenever the mission counter in Act 1, 2, 3, or 4 goes up. For most missions, this will be after the mission complete text has shown up and dissapeared. Some missions like Collateral in Act 2 will split earlier because those missions behave differently. 
 
-Since the hash of disrupt_b64.dll is different between versions, it is calculated and used to determine version differences. This autosplitter should support v1.04.497 and v1.06.329 for Steam/Uplay (and probably Epic as well).
+Since the hash of disrupt_b64.dll is different between versions, it is calculated and used to determine version differences. 
 
 Double split prevention is done using the isNotDoubleSplit function. It should prevent any double splits done by the autosplitter within 20 seconds. 
+
+## Supported Versions
+* v1.04.497
+* v1.06.329 - Oct 2014
+* v1.06.329 - Steam Latest Update
+* v1.06.329 - Uplay Latest Update
+* *v1.06.329 - Epic Latest Update? (May work if it shares the same disrupt_b64.dll file as Steam or Uplay, but it's not tested).*
 
 ## Development
 The mission counters in this game are displayed in the progression menu, and each Act has their own mission counter.
