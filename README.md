@@ -2,6 +2,8 @@
 ## Installation
 In the LiveSplit splits editor, make sure your game is set to Watch_Dogs and then click the "Activate" button.
 
+Go to https://discord.gg/652nEqt if you have any questions.
+
 ## How it Works
 **Starting and ending splits still have to be done manually if you are doing a fullgame run. There is no autostart implementation.** The autosplitter should split whenever the mission counter in Act 1, 2, 3, or 4 goes up. For most missions, this will be after the mission complete text has shown up and dissapeared. Some missions like Collateral in Act 2 will split earlier because those missions behave differently. 
 
