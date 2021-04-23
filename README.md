@@ -19,9 +19,11 @@ Double split prevention is done using the isNotDoubleSplit function. It should p
 * *v1.06.329 - Epic Latest Update? (May work if it shares the same disrupt_b64.dll file as Steam or Uplay, but it's not tested).*
 
 ## Development
+
+### How Memory Values were Found
 The mission counters in this game are displayed in the progression menu, and each Act has their own mission counter.
 
-### Act 1
+#### Act 1
 1.  Launch game. 
 2.  Using Cheat Engine, attach the Watch_Dogs.exe process.
 3.  Load save file into A1M6 (Thanks for the Tip). Scan for an exact value of 5 (because we have 5 missions completed).
@@ -33,7 +35,7 @@ The mission counters in this game are displayed in the progression menu, and eac
 9.  Repeat step 8. until you're confident in the pointer paths/they start barely changing. 
 10. Choose a pointer path (Base module - most likely disrupt_b64.dll + offsets) in the pointer scan menu with the fewest offsets.
 
-### Act 2
+#### Act 2
 1.  Launch game. 
 2.  Using Cheat Engine, attach the Watch_Dogs.exe process.
 3.  Load save file into the end of A2M12 (A Risky Bid). Scan for an exact value of 11 (because we have 11 missions completed).
@@ -42,7 +44,7 @@ The mission counters in this game are displayed in the progression menu, and eac
 6.  Look for the pointer paths with disrupt_b64.dll and the same offset at the end between the different addresses. Those will probably work. Ideally, the base address will be the same as the Act 1 one.
 7.  Choose a pointer path in the pointer scan menu with the fewest offsets.
 
-### Act 3
+#### Act 3
 1.  Launch game. 
 2.  Using Cheat Engine, attach the Watch_Dogs.exe process.
 3.  Load save file into the end of A3M3 (Unstoppable Force). Scan for an exact value of 2 (because we have 2 missions completed).
@@ -51,7 +53,7 @@ The mission counters in this game are displayed in the progression menu, and eac
 6.  Look for the pointer paths with disrupt_b64.dll and the same offset at the end between the different addresses. Those will probably work. Ideally, the base address will be the same as the Act 1 one.
 7.  Choose a pointer path in the pointer scan menu with the fewest offsets.
 
-### Act 4
+#### Act 4
 1.  Launch game. 
 2.  Using Cheat Engine, attach the Watch_Dogs.exe process.
 3.  Load save file into the end of A4M4 (Defalt Condition). Scan for an exact value of 3 (because we have 3 missions completed).
