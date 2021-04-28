@@ -19,7 +19,7 @@ Double split prevention is done using the isNotDoubleSplit function. It should p
 * v1.06.329 - Uplay Latest Update
 * *v1.06.329 - Epic Latest Update? (May work if it shares the same disrupt_b64.dll file as Steam or Uplay, but it's not tested).*
 
-## Development/How Memory Values were Found
+## How Memory Values were Found
 
 ### Mision Counter (Main Game/Aiden's Story)
 The mission counters in this game are displayed in the progression menu, and each Act has their own mission counter.
