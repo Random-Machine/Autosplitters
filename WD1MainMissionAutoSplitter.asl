@@ -117,10 +117,10 @@ split{
 	if(current.act4mainmissions == old.act4mainmissions+1)    //Aiden Story
 		return vars.isNotDoubleSplit();
 
-	if(current.XP == old.XP+250 && current.act1mainmissions!=3 && current.act4mainmissions!=5)   //BB A1M1 & BB A1M2
+	if(current.XP == old.XP+250 && current.act1mainmissions<1)   //BB A1M1 & BB A1M2
 		return vars.isNotDoubleSplit();
 	
-	if(current.XP == old.XP+500 && current.act1mainmissions!=1 && current.act2mainmissions!=1 && current.act2mainmissions!=5 && current.act2mainmissions<7)   //BB A1M3
+	if(current.XP == old.XP+500 && current.act1mainmissions<1)   //BB A1M3
 		return vars.isNotDoubleSplit(); 
 
 	if(current.XP == old.XP+600)               //BB A2M1
