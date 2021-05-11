@@ -45,6 +45,16 @@ state("Watch_Dogs" , "v1.06.329 Uplay Latest")
 
 startup
 {
+    settings.Add ("CTOS Control Centers", true, "CTOS Control Centers");
+    settings.SetToolTip("CTOS Control Centers", "Splits after completing a ctOS control center.");
+
+    settings.CurrentDefaultParent = "CTOS Control Centers";
+    settings.Add("Brandon Docks", false, "Brandon Docks");
+    settings.Add("The Wards", false, "The Wards");
+    settings.Add("Mad Mile", false, "Mad Mile");
+    settings.Add("Pawnee", false, "Pawnee");
+
+
     Action<string> logDebug = (text) => {
         print("[Watch_Dogs Autosplitter | DEBUG] "+ text);
     };
@@ -116,6 +126,18 @@ split{
 
 	if(current.act4mainmissions == old.act4mainmissions+1)    //Aiden Story
 		return vars.isNotDoubleSplit();
+		
+	if(settings["Brandon Docks"] && current.XP == old.XP+500)  //Brandon Docks ctOS Control Center
+		return vars.isNotDoubleSplit(); 
+
+    	if(settings["The Wards"] && current.XP == old.XP+500)   //The Wards ctOS Control Center
+		return vars.isNotDoubleSplit(); 
+
+    	if(settings["Mad Mile"] && current.XP == old.XP+500)    //Mad Mile ctOS Control Center
+		return vars.isNotDoubleSplit(); 
+
+    	if(settings["Pawnee"] && current.XP == old.XP+500)      //Pawnee ctOS Control Center
+		return vars.isNotDoubleSplit(); 
 
 	if(current.XP == old.XP+250 && current.act1mainmissions<1)   //BB A1M1 & BB A1M2
 		return vars.isNotDoubleSplit();
