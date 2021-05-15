@@ -5,11 +5,13 @@ In the LiveSplit splits editor, make sure your game is set to Watch_Dogs and the
 Go to https://discord.gg/652nEqt if you have any questions.
 
 ## How it Works
-**Starting and ending splits still have to be done manually if you are doing a fullgame run. There is no autostart implementation.** The autosplitter should split whenever the mission counter in Act 1, 2, 3, or 4 goes up **(Aiden's story only).** For most missions, this will be after the mission complete text has shown up and dissapeared. Some missions like Collateral in Act 2 will split earlier because those missions increase their mission counter quicker. 
+**Ending splits still have to be done manually if you are doing a fullgame run.** The autosplitter should split whenever the mission counter in Act 1, 2, 3, or 4 goes up **(Aiden's story only).** For most missions, this will be after the mission complete text has shown up and dissapeared. Some missions like Collateral in Act 2 will split earlier because those missions increase their mission counter quicker. 
 
 For Bad Blood, the XP reward of each main mission is used to split rather than the mission counter. The starting and ending splits still have to be done manually as well. 
 
-The XP rewards are also used to split for the ctOS control centers if they are selected under settings. 
+The XP rewards are also used to split for the ctOS control centers if they are selected under settings.
+
+Lineid is used for autostarting. It should start when Maurice says "I don't know!" at the start of the game. 
 
 Since the hash of disrupt_b64.dll is different between versions, it is calculated and used to determine version differences. 
 
@@ -89,3 +91,8 @@ The XP memory values for the main game and Bad Blood are the same, but they are 
 6. Close game.
 7. Repeat steps 1-6 three times to narrow down your pointer paths. Keep your pointer scan menu open to rescan the memory that you get in step 5 each time. 
 8. Pick a pointer path to add into your ASL script. 
+
+### Line ID
+1. Decompiled strings were obtained from the WD modding community, and they contain the line id of every string used in the game. 
+2. A line id can be searched in cheat engine when a specific line is said in the game. Look for the memory address that changes line ids after each line is said/shown. Add that to your addresslist and pointer scan. 
+3. Repeat step 2 (Rescan once to narrow down on a lone pointer path with the last offset being 20). 
