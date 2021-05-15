@@ -52,7 +52,9 @@ state("Watch_Dogs" , "v1.06.329 Uplay Latest")
 
 
 startup
-{
+{   
+    vars.stopwatch = new Stopwatch();
+    
     settings.Add ("CTOS Control Centers", true, "CTOS Control Centers");
     settings.SetToolTip("CTOS Control Centers", "Splits after completing a ctOS control center.");
 
@@ -125,7 +127,13 @@ init
 
 start{
 
-	if(current.lineid==46209)
+	if(vars.stopwatch.ElapsedMilliseconds > 2000)
+		vars.stopwatch.Reset();
+
+        if(current.lineid==46209)
+		vars.stopwatch.Start();
+
+	if(current.lineid==46209 && vars.stopwatch.ElapsedMilliseconds > 300)
 		return true;
 }
 
@@ -175,4 +183,10 @@ split{
 
 	if(current.XP == old.XP+1500)              //BB A3M2
 		return vars.isNotDoubleSplit();
+}
+
+reset{
+
+  	if(current.lineid==46208)
+		return true; 
 }
