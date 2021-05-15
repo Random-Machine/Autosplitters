@@ -11,11 +11,13 @@ For Bad Blood, the XP reward of each main mission is used to split rather than t
 
 The XP rewards are also used to split for the ctOS control centers if they are selected under settings.
 
-Lineid is used for autostarting. It should start when Maurice says "I don't know!" at the start of the game. 
+Lineid and the stopwatch variable are used for autostarting. It should start in the middle of when Maurice says "I don't know!" at the start of the game. The stopwatch waits 0.3 seconds before allowing the splits to start automatically. 
 
 Since the hash of disrupt_b64.dll is different between versions, it is calculated and used to determine version differences. 
 
 Double split prevention is done using the isNotDoubleSplit function. It should prevent any double splits done by the autosplitter within 20 seconds. 
+
+The reset function works by using the lineid of one of Aiden's lines before the starting lineid. 
 
 ## Supported Versions
 * v1.04.497
