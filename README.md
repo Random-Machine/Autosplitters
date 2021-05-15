@@ -13,7 +13,7 @@ For Bad Blood, the XP reward of each main mission is used to split rather than t
 
 The XP rewards are also used to split for the ctOS control centers if they are selected under settings.
 
-Lineid and the stopwatch variable are used for autostarting. It should start in the middle of when Maurice says "I don't know!" at the start of the game. The stopwatch waits 0.3 seconds before allowing the splits to start automatically. 
+Lineid and the stopwatch variable are used for autostarting. It should start in the middle of when Maurice says "I don't know!" at the start of the main game. The stopwatch waits 0.3 seconds before allowing the splits to start automatically. For Bad Blood, it starts when T-bone says his first line when you gain control of him. 
 
 Since the hash of disrupt_b64.dll is different between versions, it is calculated and used to determine version differences. 
 
