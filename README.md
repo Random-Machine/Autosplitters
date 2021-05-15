@@ -2,12 +2,14 @@
 ## Installation
 In the LiveSplit splits editor, make sure your game is set to Watch_Dogs and then click the "Activate" button. The ctOS control centers can be made to split in settings. By default, they are disabled. 
 
+**Do not turn off subtitles in the game. That will probably prevent the lineid variable from working and disable autostart/autoreset functionality.**
+
 Go to https://discord.gg/652nEqt if you have any questions.
 
 ## How it Works
 **Ending splits still have to be done manually if you are doing a fullgame run.** The autosplitter should split whenever the mission counter in Act 1, 2, 3, or 4 goes up **(Aiden's story only).** For most missions, this will be after the mission complete text has shown up and dissapeared. Some missions like Collateral in Act 2 will split earlier because those missions increase their mission counter quicker. 
 
-For Bad Blood, the XP reward of each main mission is used to split rather than the mission counter. The starting and ending splits still have to be done manually as well. 
+For Bad Blood, the XP reward of each main mission is used to split rather than the mission counter. The ending split still has to be done manually as well. 
 
 The XP rewards are also used to split for the ctOS control centers if they are selected under settings.
 
