@@ -133,7 +133,10 @@ start{
         if(current.lineid==46209)
 		vars.stopwatch.Start();
 
-	if(current.lineid==46209 && vars.stopwatch.ElapsedMilliseconds > 300)
+	if(current.lineid==46209 && vars.stopwatch.ElapsedMilliseconds > 300)   //Aiden Story Start
+		return true;
+		
+	if(current.lineid==10004649)
 		return true;
 }
 
