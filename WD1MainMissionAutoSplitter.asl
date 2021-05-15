@@ -14,6 +14,10 @@ state("Watch_Dogs" , "v1.04.497")
 	int act3mainmissions: "Disrupt_b64.dll", 0x3950830, 0x18, 0x10, 0x50, 0x30, 0x68, 0x654;
 
 	int act4mainmissions: "Disrupt_b64.dll", 0x3950830,  0x58, 0x78, 0x98, 0x954;
+	
+	int lineid: "Disrupt_b64.dll", 0x3940438, 0x20;
+	
+	
 }
 
 state("Watch_Dogs" , "v1.06.329 Steam Latest")
@@ -27,6 +31,8 @@ state("Watch_Dogs" , "v1.06.329 Steam Latest")
 	int act3mainmissions: "Disrupt_b64.dll", 0x3B70098, 0x40, 0x48, 0x1A0, 0x7D4;
 
 	int act4mainmissions: "Disrupt_b64.dll", 0x3B70098, 0x10, 0x48, 0x98, 0xB64;
+	
+	int lineid: "Disrupt_b64.dll", 0x3B5CAB8, 0x20;
 }
 
 state("Watch_Dogs" , "v1.06.329 Uplay Latest")
@@ -40,6 +46,8 @@ state("Watch_Dogs" , "v1.06.329 Uplay Latest")
 	int act3mainmissions: "Disrupt_b64.dll", 0x3B91918, 0xE0, 0xC8, 0x18, 0x180, 0x98, 0x7D4;
 
 	int act4mainmissions: "Disrupt_b64.dll", 0x3B91918, 0xE0, 0x1E8, 0x98, 0xB64;
+	
+	int lineid: "Disrupt_b64.dll", 0x3B784F8, 0x20;
 }
 
 
@@ -113,6 +121,14 @@ init
             break;
     }
 }
+
+
+start{
+
+	if(current.lineid==46209)
+		return true;
+}
+
 
 split{ 
 	if(current.act1mainmissions == old.act1mainmissions+1)    //Aiden Story
