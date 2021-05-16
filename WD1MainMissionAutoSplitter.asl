@@ -66,7 +66,7 @@ startup{
     
     settings.CurrentDefaultParent = null;
     settings.Add("Remember", false, "Remember");
-    
+    settings.SetToolTip("Remember", "Splits after the cemetery cutscene in Act 1");
 
     Action<string> logDebug = (text) => {
         print("[Watch_Dogs Autosplitter | DEBUG] "+ text);
