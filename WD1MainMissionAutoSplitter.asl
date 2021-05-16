@@ -129,7 +129,7 @@ init{
 
 update{
 
-    if(vars.stopwatch.ElapsedMilliseconds > 10000)
+        if(vars.stopwatch.ElapsedMilliseconds > 10000)
 	    vars.stopwatch.Reset();
 }
 
@@ -137,7 +137,7 @@ update{
 start{
 
 	if(vars.stopwatch.ElapsedMilliseconds > 2000)
-		vars.stopwatch.Reset();
+	vars.stopwatch.Reset();
 
         if(current.lineid==46209)
 	{
