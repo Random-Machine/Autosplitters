@@ -51,8 +51,8 @@ state("Watch_Dogs" , "v1.06.329 Uplay Latest")
 }
 
 
-startup
-{   
+startup{
+
     vars.stopwatch = new Stopwatch();
     
     settings.Add ("CTOS Control Centers", true, "CTOS Control Centers");
@@ -63,7 +63,10 @@ startup
     settings.Add("The Wards", false, "The Wards");
     settings.Add("Mad Mile", false, "Mad Mile");
     settings.Add("Pawnee", false, "Pawnee");
-
+    
+    settings.CurrentDefaultParent = null;
+    settings.Add("Remember", false, "Remember");
+    
 
     Action<string> logDebug = (text) => {
         print("[Watch_Dogs Autosplitter | DEBUG] "+ text);
@@ -102,8 +105,8 @@ startup
 	vars.isNotDoubleSplit = isNotDoubleSplit;
 }
 
-init
-{
+init{
+
     // vars.logDebug("modules: " + String.Join(", ", modules.Select(m=> m.ModuleName + " : " + m.BaseAddress.ToString() + " : " + m.EntryPointAddress.ToString())));
     ProcessModuleWow64Safe module = modules.Single(x => String.Equals(x.ModuleName, "Disrupt_b64.dll", StringComparison.OrdinalIgnoreCase));
     string hash = vars.calcModuleHash(module);
@@ -124,6 +127,12 @@ init
     }
 }
 
+update{
+
+    if(vars.stopwatch.ElapsedMilliseconds > 10000)
+	    vars.stopwatch.Reset();
+}
+
 
 start{
 
@@ -131,10 +140,11 @@ start{
 		vars.stopwatch.Reset();
 
         if(current.lineid==46209)
-		vars.stopwatch.Start();
-
-	if(current.lineid==46209 && vars.stopwatch.ElapsedMilliseconds > 300)   //Aiden Story Start
+	{
+        vars.stopwatch.Start();
+	    if(vars.stopwatch.ElapsedMilliseconds > 300)    //Aiden Story Start
 		return true;
+    	}
 		
 	if(current.lineid==10004649)   //Bad Blood Start
 		return true;
@@ -153,17 +163,25 @@ split{
 
 	if(current.act4mainmissions == old.act4mainmissions+1)    //Aiden Story
 		return vars.isNotDoubleSplit();
+	
+	if(settings["Remember"] && current.lineid == 204646)      //Act 1 Graveyard Visit
+    	{
+		vars.stopwatch.Start();
+        	if(vars.stopwatch.ElapsedMilliseconds > 7300)
+            		return vars.isNotDoubleSplit();
+    	}	
+	
 		
-	if(settings["Brandon Docks"] && current.XP == old.XP+500)  //Brandon Docks ctOS Control Center
+	if(settings["Brandon Docks"] && current.lineid == 208307)  //Brandon Docks ctOS Control Center
 		return vars.isNotDoubleSplit(); 
 
-    	if(settings["The Wards"] && current.XP == old.XP+500)   //The Wards ctOS Control Center
+    	if(settings["The Wards"] && current.act2mainmissions == 5 && current.XP == old.XP+500)   //The Wards ctOS Control Center
 		return vars.isNotDoubleSplit(); 
 
-    	if(settings["Mad Mile"] && current.XP == old.XP+500)    //Mad Mile ctOS Control Center
+    	if(settings["Mad Mile"] && current.lineid == 209437)    //Mad Mile ctOS Control Center
 		return vars.isNotDoubleSplit(); 
 
-    	if(settings["Pawnee"] && current.XP == old.XP+500)      //Pawnee ctOS Control Center
+    	if(settings["Pawnee"] && current.lineid == 219093)      //Pawnee ctOS Control Center
 		return vars.isNotDoubleSplit(); 
 
 	if(current.XP == old.XP+250 && current.act1mainmissions<1)   //BB A1M1 & BB A1M2
