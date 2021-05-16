@@ -9,7 +9,7 @@ Go to https://discord.gg/652nEqt if you have any questions.
 ## How it Works
 **Ending splits still have to be done manually if you are doing a fullgame run.** The autosplitter should split whenever the mission counter in Act 1, 2, 3, or 4 goes up **(Aiden's story only).** For most missions, this will be after the mission complete text has shown up and dissapeared. Some missions like Collateral in Act 2 will split earlier because those missions increase their mission counter quicker. 
 
-**The autosplitter will not currently split for They Can't Hide (potential crime intro), Foresight (gun shop act 1), Tools of the Trade (pawn shop act 2) or the graveyard cutscene in Act 1 (Remember).**
+**The autosplitter will not currently split for They Can't Hide (potential crime intro), Foresight (gun shop act 1), or Tools of the Trade (pawn shop act 2).**
 
 For Bad Blood, the XP reward of each main mission is used to split rather than the mission counter. The ending split still has to be done manually as well. 
 
