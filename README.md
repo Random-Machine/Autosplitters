@@ -104,3 +104,13 @@ The XP memory values for the main game and Bad Blood are the same, but they are 
 1. Decompiled strings were obtained from the WD modding community, and they contain the line id of every string used in the game. 
 2. A line id can be searched in cheat engine when a specific line is said in the game. Look for the memory address that changes line ids after each line is said/shown. Add that to your addresslist and pointer scan. 
 3. Repeat step 2 (Rescan once to narrow down on a lone pointer path with the last offset being 20). 
+
+# Watch_Dogs Video AutoSplitter
+The WD1.vas is a video autosplitter that can also work for console. Supports autostarting, autoresetting, and autosplitting. Should split for all main missions except for maybe A2M3, A3M4, and A4M7. May only work for scaled 16:9 aspect ratios.
+
+Installing:
+1. Install video autosplitter component for livesplit.
+2. Install virtual camera for obs. 
+3. Connect game feed to obs and make that your virtual camera.
+4. Select this downloaded game profile and the virtual camera from obs in livesplit.
+5. Adjust scan region in livesplit.
