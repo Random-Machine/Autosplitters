@@ -110,7 +110,7 @@ The WD1.vas is a video autosplitter that can also work for console. Supports aut
 
 Installing:
 1. Install [video autosplitter component](https://github.com/ROMaster2/LiveSplit.VideoAutoSplit/releases) for livesplit.
-2. Install virtual camera for obs. 
+2. Install [virtual camera](https://obsproject.com/forum/resources/obs-virtualcam.539/) for obs. 
 3. Connect game feed to obs and make that your virtual camera.
 4. Select this downloaded game profile and the virtual camera from obs in livesplit.
 5. Adjust scan region in livesplit.
