@@ -109,7 +109,7 @@ The XP memory values for the main game and Bad Blood are the same, but they are 
 The WD1.vas is a video autosplitter that can also work for console. Supports autostarting, autoresetting, and autosplitting. Should split for all main missions except for maybe A2M3, A3M4, and A4M7. May only work for scaled 16:9 aspect ratios.
 
 Installing:
-1. Install video autosplitter component for livesplit.
+1. Install [video autosplitter component](https://github.com/ROMaster2/LiveSplit.VideoAutoSplit/releases) for livesplit.
 2. Install virtual camera for obs. 
 3. Connect game feed to obs and make that your virtual camera.
 4. Select this downloaded game profile and the virtual camera from obs in livesplit.
