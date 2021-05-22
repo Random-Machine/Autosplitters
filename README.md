@@ -106,7 +106,7 @@ The XP memory values for the main game and Bad Blood are the same, but they are 
 3. Repeat step 2 (Rescan once to narrow down on a lone pointer path with the last offset being 20). 
 
 # Watch_Dogs Video AutoSplitter
-The WD1.vas is a video autosplitter that can also work for console. Supports autostarting, autoresetting, and autosplitting. Should split for all main missions except for maybe A2M3, A3M4, and A4M7. May only work for scaled 16:9 aspect ratios.
+The WD1.vas is a video autosplitter that can also work for console. Supports autostarting, autoresetting, and autosplitting. Should split for all main missions except for maybe A2M3, A3M4, and A4M7. May only work for scaled 16:9 aspect ratios. Only works for English versions also. 
 
 Installing:
 1. Install [video autosplitter component](https://github.com/ROMaster2/LiveSplit.VideoAutoSplit/releases) for livesplit.
