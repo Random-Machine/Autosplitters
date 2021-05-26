@@ -65,8 +65,12 @@ startup{
     settings.Add("Pawnee", false, "Pawnee");
     
     settings.CurrentDefaultParent = null;
+    settings.Add("Hacking Contract", false, "Hacking Contract");
+    settings.SetToolTip("Hacking Contract", "Splits after completing the hacking invasion mission in Act 1 with 2XTheTap and accessing the online contracts app");
+    
     settings.Add("Remember", false, "Remember");
     settings.SetToolTip("Remember", "Splits after the cemetery cutscene in Act 1");
+    
 
     Action<string> logDebug = (text) => {
         print("[Watch_Dogs Autosplitter | DEBUG] "+ text);
@@ -137,32 +141,39 @@ update{
 start{
 
 	if(vars.stopwatch.ElapsedMilliseconds > 2000)
-	vars.stopwatch.Reset();
+	    vars.stopwatch.Reset();
 
-        if(current.lineid==46209)
+        if(current.lineid == 46209)
 	{
         vars.stopwatch.Start();
 	    if(vars.stopwatch.ElapsedMilliseconds > 300)    //Aiden Story Start
 		return true;
     	}
 		
-	if(current.lineid==10004649)   //Bad Blood Start
+	if(current.lineid == 10004649)   //Bad Blood Start
 		return true;
 }
 
 
 split{ 
-	if(current.act1mainmissions == old.act1mainmissions+1)    //Aiden Story
+	if(current.act1mainmissions == old.act1mainmissions + 1)    //Aiden Story
 		return vars.isNotDoubleSplit();
 
-	if(current.act2mainmissions == old.act2mainmissions+1)    //Aiden Story
+	if(current.act2mainmissions == old.act2mainmissions + 1)    //Aiden Story
 		return vars.isNotDoubleSplit();
 
-	if(current.act3mainmissions == old.act3mainmissions+1)    //Aiden Story
+	if(current.act3mainmissions == old.act3mainmissions + 1)    //Aiden Story
 		return vars.isNotDoubleSplit();
 
-	if(current.act4mainmissions == old.act4mainmissions+1)    //Aiden Story
+	if(current.act4mainmissions == old.act4mainmissions + 1)    //Aiden Story
 		return vars.isNotDoubleSplit();
+	
+	if(settings["Hacking Contract"] && current.lineid == 217543)
+    	{
+        	vars.stopwatch.Start();
+        	if(vars.stopwatch.ElapsedMilliseconds > 6033)	  //Act 1 Fake Online Hacking Mission
+            		return vars.isNotDoubleSplit();
+   	}
 	
 	if(settings["Remember"] && current.lineid == 204646)      //Act 1 Graveyard Visit
     	{
@@ -170,7 +181,6 @@ split{
         	if(vars.stopwatch.ElapsedMilliseconds > 7300)
             		return vars.isNotDoubleSplit();
     	}	
-	
 		
 	if(settings["Brandon Docks"] && current.lineid == 208307)  //Brandon Docks ctOS Control Center
 		return vars.isNotDoubleSplit(); 
@@ -184,30 +194,30 @@ split{
     	if(settings["Pawnee"] && current.lineid == 219093)      //Pawnee ctOS Control Center
 		return vars.isNotDoubleSplit(); 
 
-	if(current.XP == old.XP+250 && current.act1mainmissions<1)   //BB A1M1 & BB A1M2
+	if(current.XP == old.XP + 250 && current.act1mainmissions < 1)   //BB A1M1 & BB A1M2
 		return vars.isNotDoubleSplit();
 	
-	if(current.XP == old.XP+500 && current.act1mainmissions<1)   //BB A1M3
+	if(current.XP == old.XP + 500 && current.act1mainmissions < 1)   //BB A1M3
 		return vars.isNotDoubleSplit(); 
 
-	if(current.XP == old.XP+600)               //BB A2M1
+	if(current.XP == old.XP + 600)               //BB A2M1
 		return vars.isNotDoubleSplit();
 
-	if(current.XP == old.XP+650)               //BB A2M2
+	if(current.XP == old.XP + 650)               //BB A2M2
 		return vars.isNotDoubleSplit();
 	
-	if(current.XP == old.XP+800)               //BB A2M3 & BB A2M4
+	if(current.XP == old.XP + 800)               //BB A2M3 & BB A2M4
 		return vars.isNotDoubleSplit();
 	
-	if(current.XP == old.XP+1000)              //BB A3M1
+	if(current.XP == old.XP + 1000)              //BB A3M1
 		return vars.isNotDoubleSplit();
 
-	if(current.XP == old.XP+1500)              //BB A3M2
+	if(current.XP == old.XP + 1500)              //BB A3M2
 		return vars.isNotDoubleSplit();
 }
 
 reset{
 
-  	if(current.lineid==46208)
+  	if(current.lineid == 46208)
 		return true; 
 }
