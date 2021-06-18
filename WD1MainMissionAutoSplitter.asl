@@ -17,6 +17,7 @@ state("Watch_Dogs" , "v1.04.497")
 	
 	int lineid: "Disrupt_b64.dll", 0x3940438, 0x20;
 	
+	int ending: "Disrupt_b64.dll", 0x393EB78;
 	
 }
 
@@ -33,6 +34,9 @@ state("Watch_Dogs" , "v1.06.329 Steam Latest")
 	int act4mainmissions: "Disrupt_b64.dll", 0x3B70098, 0x10, 0x48, 0x98, 0xB64;
 	
 	int lineid: "Disrupt_b64.dll", 0x3B5CAB8, 0x20;
+	
+	int ending: "Disrupt_b64.dll", 0x3B5B078;
+	
 }
 
 state("Watch_Dogs" , "v1.06.329 Uplay Latest")
@@ -48,6 +52,9 @@ state("Watch_Dogs" , "v1.06.329 Uplay Latest")
 	int act4mainmissions: "Disrupt_b64.dll", 0x3B91918, 0xE0, 0x1E8, 0x98, 0xB64;
 	
 	int lineid: "Disrupt_b64.dll", 0x3B784F8, 0x20;
+	
+	int ending: "Disrupt_b64.dll", 0x3B76B28;
+	
 }
 
 
@@ -167,6 +174,9 @@ split{
 
 	if(current.act4mainmissions == old.act4mainmissions + 1)    //Aiden Story
 		return vars.isNotDoubleSplit();
+		
+	if(current.lineid == 194143 && old.ending == 0 && current.ending == 1)    //Aiden Story Ending
+        	return vars.isNotDoubleSplit();
 	
 	if(settings["Hacking Contract"] && current.lineid == 217543)
     	{
