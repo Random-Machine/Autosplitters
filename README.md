@@ -7,7 +7,7 @@ In the LiveSplit splits editor, make sure your game is set to Watch_Dogs and the
 Go to https://discord.gg/652nEqt if you have any questions.
 
 ## How it Works
-**Ending splits still have to be done manually if you are doing a fullgame run.** The autosplitter should split whenever the mission counter in Act 1, 2, 3, or 4 goes up **(Aiden's story only).** For most missions, this will be after the mission complete text has shown up and dissapeared. Some missions like Collateral in Act 2 will split earlier because those missions increase their mission counter quicker. 
+The autosplitter should split whenever the mission counter in Act 1, 2, 3, or 4 goes up **(Aiden's story only).** For most missions, this will be after the mission complete text has shown up and dissapeared. Some missions like Collateral in Act 2 will split earlier because those missions increase their mission counter quicker. It should also split at the end when you shoot Damien at the lighthouse. 
 
 **The autosplitter will not currently split for They Can't Hide (potential crime intro), Foresight (gun shop act 1), or Tools of the Trade (pawn shop act 2).**
 
@@ -17,7 +17,7 @@ The XP reward is also used to split for the Wards ctOS control center if it is s
 
 ```Lineid``` and the stopwatch variable are used for autostarting. It should start in the middle of when Maurice says "I don't know!" at the start of the main game. The stopwatch waits 0.3 seconds before allowing the splits to start automatically. For Bad Blood, it starts when T-bone says his first line when you gain control of him. 
 
-```Lineid``` is used to split for 3 of the ctOS centers (Brandon Docks, Mad Mile, Pawnee) if they are selected under settings. It is also used to split for Remember if it is selected under settings. 
+```Lineid``` is used to split for 3 of the ctOS centers (Brandon Docks, Mad Mile, Pawnee) if they are selected under settings. It is also used to split for Remember/Hacking Contract if it is selected under settings. 
 
 Since the hash of disrupt_b64.dll is different between versions, it is calculated and used to determine version differences. 
 
@@ -28,8 +28,7 @@ The reset function works by using the ```lineid``` of one of Aiden's lines befor
 ## Supported Versions
 * v1.04.497
 * v1.06.329 - Steam Latest Update
-* v1.06.329 - Uplay Latest Update
-* *v1.06.329 - Epic Latest Update? (May work if it shares the same disrupt_b64.dll file as Steam or Uplay, but it's not tested).*
+* v1.06.329 - Uplay/Epic Latest Update
 
 ## How Memory Values were Found
 
@@ -104,6 +103,16 @@ The XP memory values for the main game and Bad Blood are the same, but they are 
 1. Decompiled strings were obtained from the WD modding community, and they contain the line id of every string used in the game. 
 2. A line id can be searched in cheat engine when a specific line is said in the game. Look for the memory address that changes line ids after each line is said/shown. Add that to your addresslist and pointer scan. 
 3. Repeat step 2 (Rescan once to narrow down on a lone pointer path with the last offset being 20). 
+
+### Ending Variable
+This is a static address that changes in value from 0 to 1 when you shoot Damien. It is used along with ```lineid``` to split at the ending of WD1 when you shoot Damien. 
+
+1. Set scan options to disrupt_b64.dll
+2. Search for a value of 0 when you are in the quicktime event where you need to shoot Damien.
+3. Search for a value of 1 after Damien has been shot. 
+4. Repeat steps 2-3 until the addresses have been narrowed down to 1-3.
+5. Repeat again and notice the change in values for each of the addresses. 
+6. Pick the correct address and add that to the script.
 
 # Watch_Dogs Video AutoSplitter
 The WD1.vas is a video autosplitter that can also work for console. Supports autostarting, autoresetting, and autosplitting. Should split for all main missions except for maybe A2M3, A3M4, and A4M7. May only work for scaled 16:9 aspect ratios. Only works for English versions also. 
