@@ -107,7 +107,7 @@ The XP memory values for the main game and Bad Blood are the same, but they are 
 ### Ending Variable
 This is a static address that changes in value from 0 to 1 when you shoot Damien, but it does not only change value for that instance. It is used along with ```lineid``` to split at the ending of WD1 when you shoot Damien. 
 
-1. Set scan options to disrupt_b64.dll
+1. Set memory scan options to disrupt_b64.dll
 2. Search for a value of 0 when you are in the quicktime event where you need to shoot Damien.
 3. Search for a value of 1 after Damien has been shot. 
 4. Repeat steps 2-3 until the addresses have been narrowed down to 1-3.
