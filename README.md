@@ -2,7 +2,7 @@
 ## Installation
 In the LiveSplit splits editor, make sure your game is set to Watch_Dogs and then click the "Activate" button. The ctOS control centers can be made to split in settings. By default, they are disabled. 
 
-**Do not turn off subtitles in the game. That will probably prevent the lineid variable from working and disable autostart/autoreset functionality.**
+**Do not turn off subtitles in the game. That will probably prevent the lineid variable from working and disable autostart/autoreset/ending functionality.**
 
 Go to https://discord.gg/652nEqt if you have any questions.
 
@@ -105,7 +105,7 @@ The XP memory values for the main game and Bad Blood are the same, but they are 
 3. Repeat step 2 (Rescan once to narrow down on a lone pointer path with the last offset being 20). 
 
 ### Ending Variable
-This is a static address that changes in value from 0 to 1 when you shoot Damien. It is used along with ```lineid``` to split at the ending of WD1 when you shoot Damien. 
+This is a static address that changes in value from 0 to 1 when you shoot Damien, but it does not only change value for that instance. It is used along with ```lineid``` to split at the ending of WD1 when you shoot Damien. 
 
 1. Set scan options to disrupt_b64.dll
 2. Search for a value of 0 when you are in the quicktime event where you need to shoot Damien.
