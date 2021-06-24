@@ -19,6 +19,7 @@ state("Watch_Dogs" , "v1.04.497")
 	
 	int ending: "Disrupt_b64.dll", 0x393EB78;
 	
+	int loading: "Disrupt_b64.dll", 0x39562CC;	
 }
 
 state("Watch_Dogs" , "v1.06.329 Steam Latest")
@@ -37,6 +38,8 @@ state("Watch_Dogs" , "v1.06.329 Steam Latest")
 	
 	int ending: "Disrupt_b64.dll", 0x3B5B078;
 	
+	int loading: "Disrupt_b64.dll", 0x3B7BAFC;
+	
 }
 
 state("Watch_Dogs" , "v1.06.329 Uplay Latest")
@@ -54,6 +57,8 @@ state("Watch_Dogs" , "v1.06.329 Uplay Latest")
 	int lineid: "Disrupt_b64.dll", 0x3B784F8, 0x20;
 	
 	int ending: "Disrupt_b64.dll", 0x3B76B28;
+	
+	int loading: "Disrupt_b64.dll", 0x3B94ACC;
 	
 }
 
@@ -137,6 +142,14 @@ init{
             break;
     }
 }
+
+
+isLoading
+{
+    if (version != "")
+	return current.loading > 0;
+}
+
 
 update{
 
