@@ -146,8 +146,8 @@ init{
 
 isLoading
 {
-    if (version != "")
-	return current.loading > 0;
+    	if (version != "")
+	    return current.loading > 0;
 }
 
 
