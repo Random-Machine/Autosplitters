@@ -25,6 +25,8 @@ Double split prevention is done using the ```isNotDoubleSplit``` function. It sh
 
 The reset function works by using the ```lineid``` of one of Aiden's lines before the starting ```lineid```. 
 
+*You can turn on the load Remover by setting comparison to game time. The timer pauses during the loading screens with the progress bars only. Currently, times for this game do not have loads removed, so you do not need to use this.*
+
 ## Supported Versions
 * v1.04.497
 * v1.06.329 - Steam Latest Update
@@ -113,6 +115,13 @@ This is a static address that changes in value from 0 to 1 when you shoot Damien
 4. Repeat steps 2-3 until the addresses have been narrowed down to 1-3.
 5. Repeat again and notice the change in values for each of the addresses. 
 6. Pick the correct address and add that to the script.
+
+### Loading
+1. Set memory scan options to disrupt_b64.dll
+2. Search for a value of 1 during a loading screen with the progress bar
+3. Search for a value of 0 after the loading screen is over
+4. Repeat steps 2-4 until the value is narrowed down
+5. Add the static address to the script
 
 # Watch_Dogs Video AutoSplitter
 The WD1.vas is a video autosplitter that can also work for console. Supports autostarting, autoresetting, and autosplitting. Should split for all main missions except for maybe A2M3, A3M4, and A4M7. May only work for scaled 16:9 aspect ratios. Only works for English versions also. 
