@@ -25,7 +25,7 @@ Double split prevention is done using the ```isNotDoubleSplit``` function. It sh
 
 The reset function works by using the ```lineid``` of one of Aiden's lines before the starting ```lineid```. 
 
-*You can turn on the load Remover by setting comparison to game time. The timer pauses during the loading screens with the progress bars only. Currently, times for this game do not have loads removed, so you do not need to use this.*
+*You can turn on the load remover by setting comparison to game time. The timer pauses during the loading screens with the progress bars only. Currently, times for this game do not have loads removed, so you do not need to use this.*
 
 ## Supported Versions
 * v1.04.497
