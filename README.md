@@ -116,7 +116,7 @@ This is a static address that changes in value from 0 to 1 when you shoot Damien
 5. Repeat again and notice the change in values for each of the addresses. 
 6. Pick the correct address and add that to the script.
 
-### Loading
+### Loading (Load Remover)
 1. Set memory scan options to disrupt_b64.dll
 2. Search for a value of 1 during a loading screen with the progress bar
 3. Search for a value of 0 after the loading screen is over
