@@ -34,7 +34,7 @@ The reset function works by using the ```lineid``` of one of Aiden's lines befor
 
 ## How Memory Values were Found
 
-### Mision Counter (Main Game/Aiden's Story)
+### Mission Counter (Main Game/Aiden's Story)
 The mission counters in this game are displayed in the progression menu, and each Act has their own mission counter.
 
 #### Act 1
