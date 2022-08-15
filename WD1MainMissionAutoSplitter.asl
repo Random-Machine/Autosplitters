@@ -27,20 +27,16 @@ state("Watch_Dogs" , "v1.06.329 Steam Latest")
 	int XP: "Disrupt_b64.dll", 0x3BDB920, 0x90, 0x18, 0xAA8;
 	
 	int act1mainmissions: "Disrupt_b64.dll", 0x3B70098, 0x10, 0x78, 0x98, 0xEC4;
-	
 	int act1mainmissions2: "Disrupt_b64.dll", 0x3B70098, 0x10, 0x78, 0x98, 0xC24;
 
 	int act2mainmissions: "Disrupt_b64.dll", 0x3B70098, 0x40, 0x48, 0x168, 0x3B4;
-	
-	int act2mainmissions2: "Disrupt_b64.dll", 0x3B70098, 0x10, 0x118, 0x98, 0x2C4;
+	int act2mainmissions2: "Disrupt_b64.dll", 0x3B70098, 0x40, 0x48, 0x168, 0x2C4;
 
 	int act3mainmissions: "Disrupt_b64.dll", 0x3B70098, 0x40, 0x48, 0x1A0, 0x7D4;
-	
-	int act3mainmissions2: "Disrupt_b64.dll", 0x3B70098, 0x10, 0x78, 0x1A0, 0x654;
+	int act3mainmissions2: "Disrupt_b64.dll", 0x3B70098, 0x40, 0x48, 0x1A0, 0x654;
 
 	int act4mainmissions: "Disrupt_b64.dll", 0x3B70098, 0x10, 0x48, 0x98, 0xB64;
-	
-	int act4mainmissions2: "Disrupt_b64.dll", 0x3B70098, 0x40, 0x48, 0x1A0, 0x954;
+	int act4mainmissions2: "Disrupt_b64.dll", 0x3B70098, 0x10, 0x48, 0x98, 0x954;
 	
 	int lineid: "Disrupt_b64.dll", 0x3B5CAB8, 0x20;
 	
@@ -55,12 +51,16 @@ state("Watch_Dogs" , "v1.06.329 Uplay Latest")
 	int XP: "Disrupt_b64.dll", 0x3B59050, 0x40, 0x98, 0x248, 0xA8;
 
 	int act1mainmissions: "Disrupt_b64.dll", 0x3B91918, 0xE0, 0x1E8, 0x98, 0xEC4;
+	int act1mainmissions2: "Disrupt_b64.dll", 0x3B91918, 0xE0, 0x1E8, 0x98, 0xC24;
 
 	int act2mainmissions: "Disrupt_b64.dll", 0x3B91918, 0x110, 0x1F8, 0x168, 0x3B4;
-
+	int act2mainmissions2: "Disrupt_b64.dll", 0x3B91918, 0x110, 0x1F8, 0x168, 0x2C4;
+	
 	int act3mainmissions: "Disrupt_b64.dll", 0x3B91918, 0xE0, 0xC8, 0x18, 0x180, 0x98, 0x7D4;
-
+	int act3mainmissions2: "Disrupt_b64.dll", 0x3B91918, 0xE0, 0xC8, 0x18, 0x180, 0x98, 0x654;
+	
 	int act4mainmissions: "Disrupt_b64.dll", 0x3B91918, 0xE0, 0x1E8, 0x98, 0xB64;
+	int act4mainmissions2: "Disrupt_b64.dll", 0x3B91918, 0xE0, 0x1E8, 0x98, 0x954;
 	
 	int lineid: "Disrupt_b64.dll", 0x3B784F8, 0x20;
 	
@@ -185,26 +185,22 @@ start{
 
 split{ 
 	if(current.act1mainmissions == old.act1mainmissions + 1)    //Aiden Story
-		return vars.isNotDoubleSplit();
-		
+		return vars.isNotDoubleSplit();	
 	if(current.act1mainmissions2 == old.act1mainmissions2 + 1)    //Aiden Story
 		return vars.isNotDoubleSplit();
 
 	if(current.act2mainmissions == old.act2mainmissions + 1)    //Aiden Story
-		return vars.isNotDoubleSplit();
-		
+		return vars.isNotDoubleSplit();	
 	if(current.act2mainmissions2 == old.act2mainmissions2 + 1)    //Aiden Story
 		return vars.isNotDoubleSplit();
 
 	if(current.act3mainmissions == old.act3mainmissions + 1)    //Aiden Story
-		return vars.isNotDoubleSplit();
-		
+		return vars.isNotDoubleSplit();	
 	if(current.act3mainmissions2 == old.act3mainmissions2 + 1)    //Aiden Story
 		return vars.isNotDoubleSplit();
 
 	if(current.act4mainmissions == old.act4mainmissions + 1)    //Aiden Story
 		return vars.isNotDoubleSplit();
-		
 	if(current.act4mainmissions2 == old.act4mainmissions2 + 1)    //Aiden Story
 		return vars.isNotDoubleSplit();
 		
