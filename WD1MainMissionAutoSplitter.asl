@@ -221,16 +221,16 @@ split{
             		return vars.isNotDoubleSplit();
     	}	
 		
-	if(settings["Brandon Docks"] && current.lineid == 208307)  //Brandon Docks ctOS Control Center
+	if(settings["CTOS Control Centers"] && ["Brandon Docks"] && current.lineid == 208307)  //Brandon Docks ctOS Control Center
 		return vars.isNotDoubleSplit(); 
 
-    	if(settings["The Wards"] && current.act2mainmissions == 5 || current.act2mainmissions2 == 5 && current.XP == old.XP+500)   //The Wards ctOS Control Center
+    	if(settings["CTOS Control Centers"] && settings["The Wards"] && current.act2mainmissions == 5 || current.act2mainmissions2 == 5 && current.XP == old.XP+500)   //The Wards ctOS Control Center
 		return vars.isNotDoubleSplit(); 
 
-    	if(settings["Mad Mile"] && current.lineid == 209437)    //Mad Mile ctOS Control Center
+    	if(settings["CTOS Control Centers"] && settings["Mad Mile"] && current.lineid == 209437)    //Mad Mile ctOS Control Center
 		return vars.isNotDoubleSplit(); 
 
-    	if(settings["Pawnee"] && current.lineid == 219093)      //Pawnee ctOS Control Center
+    	if(settings["CTOS Control Centers"] && settings["Pawnee"] && current.lineid == 219093)      //Pawnee ctOS Control Center
 		return vars.isNotDoubleSplit(); 
 
 	if(current.lineid == 10000025)                              //BB A1M1
