@@ -221,7 +221,7 @@ split{
             		return vars.isNotDoubleSplit();
     	}	
 		
-	if(settings["CTOS Control Centers"] && ["Brandon Docks"] && current.lineid == 208307)  //Brandon Docks ctOS Control Center
+	if(settings["CTOS Control Centers"] && settings["Brandon Docks"] && current.lineid == 208307)  //Brandon Docks ctOS Control Center
 		return vars.isNotDoubleSplit(); 
 
     	if(settings["CTOS Control Centers"] && settings["The Wards"] && current.act2mainmissions == 5 || current.act2mainmissions2 == 5 && current.XP == old.XP+500)   //The Wards ctOS Control Center
