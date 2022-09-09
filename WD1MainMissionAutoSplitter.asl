@@ -95,7 +95,7 @@ startup{
     settings.Add("Remember", false, "Remember");
     settings.SetToolTip("Remember", "Splits after the cemetery cutscene in Act 1");
     
-    settings.Add("Mixed 1.04 and Latest patch files", false, "v1.04 patch.dat/.fat with Latest Steam or Uplay bin files");
+    settings.Add("Mixed 1.04 and Latest patch files", false, "Splitting for v1.04 patch.dat/.fat with Latest Steam or Uplay bin files");
     settings.SetToolTip("Mixed 1.04 and Latest patch files", "Only tick this if you are using this specific combo");
     
     Action<string> logDebug = (text) => {
