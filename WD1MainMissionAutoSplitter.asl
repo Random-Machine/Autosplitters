@@ -95,7 +95,9 @@ startup{
     settings.Add("Remember", false, "Remember");
     settings.SetToolTip("Remember", "Splits after the cemetery cutscene in Act 1");
     
-
+    settings.Add("Mixed 1.04 and Latest patch files", false, "v1.04 patch.dat/.fat with Latest Steam or Uplay bin files");
+    settings.SetToolTip("Mixed 1.04 and Latest patch files", "Only tick this if you are using this specific combo");
+    
     Action<string> logDebug = (text) => {
         print("[Watch_Dogs Autosplitter | DEBUG] "+ text);
     };
@@ -188,24 +190,16 @@ start{
 
 
 split{ 
-	if(current.act1mainmissions == old.act1mainmissions + 1)    //Aiden Story
+	if(current.act1mainmissions == old.act1mainmissions + 1 || settings["Mixed 1.04 and Latest patch files"] && current.act1mainmissions2 == old.act1mainmissions2 + 1)  //Aiden Story
 		return vars.isNotDoubleSplit();	
-	if(current.act1mainmissions2 == old.act1mainmissions2 + 1)    //Aiden Story
-		return vars.isNotDoubleSplit();
 
-	if(current.act2mainmissions == old.act2mainmissions + 1)    //Aiden Story
+	if(current.act2mainmissions == old.act2mainmissions + 1 || settings["Mixed 1.04 and Latest patch files"] && current.act2mainmissions2 == old.act2mainmissions2 + 1)  //Aiden Story
 		return vars.isNotDoubleSplit();	
-	if(current.act2mainmissions2 == old.act2mainmissions2 + 1)    //Aiden Story
-		return vars.isNotDoubleSplit();
-
-	if(current.act3mainmissions == old.act3mainmissions + 1)    //Aiden Story
+	
+	if(current.act3mainmissions == old.act3mainmissions + 1 || settings["Mixed 1.04 and Latest patch files"] && current.act3mainmissions2 == old.act3mainmissions2 + 1)   //Aiden Story
 		return vars.isNotDoubleSplit();	
-	if(current.act3mainmissions2 == old.act3mainmissions2 + 1)    //Aiden Story
-		return vars.isNotDoubleSplit();
-
-	if(current.act4mainmissions == old.act4mainmissions + 1)    //Aiden Story
-		return vars.isNotDoubleSplit();
-	if(current.act4mainmissions2 == old.act4mainmissions2 + 1)    //Aiden Story
+	
+	if(current.act4mainmissions == old.act4mainmissions + 1 || settings["Mixed 1.04 and Latest patch files"] && current.act4mainmissions2 == old.act4mainmissions2 + 1)   //Aiden Story
 		return vars.isNotDoubleSplit();
 		
 	if(current.lineid == 194143 && old.ending == 0 && current.ending == 1)    //Aiden Story Ending
