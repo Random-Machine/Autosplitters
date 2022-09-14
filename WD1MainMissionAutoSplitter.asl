@@ -8,16 +8,12 @@ state("Watch_Dogs" , "v1.04.497")
 	int XP: "Disrupt_b64.dll", 0x396E038, 0x768, 0x0, 0x60, 0x8, 0xB8, 0x20;
 
 	int act1mainmissions: "Disrupt_b64.dll", 0x3950830, 0xA8, 0x18, 0xC8, 0x18, 0x180, 0x98, 0xC24;
-	int act1mainmissions2: "Disrupt_b64.dll", 0x3950830, 0xD8, 0x18, 0xC8, 0x18, 0x180, 0x98, 0xC24;
 
 	int act2mainmissions: "Disrupt_b64.dll", 0x3950830, 0x10, 0x48, 0x38, 0x98, 0x2C4;
-	int act2mainmissions2: "Disrupt_b64.dll", 0x3950830, 0x10, 0x48, 0x38, 0x98, 0x2C4;
 
 	int act3mainmissions: "Disrupt_b64.dll", 0x3950830, 0x18, 0x10, 0x50, 0x30, 0x68, 0x654;
-	int act3mainmissions2: "Disrupt_b64.dll", 0x3950830, 0x18, 0x10, 0x50, 0x30, 0x68, 0x654;
-
+	
 	int act4mainmissions: "Disrupt_b64.dll", 0x3950830,  0x58, 0x78, 0x98, 0x954;
-	int act4mainmissions2: "Disrupt_b64.dll", 0x3950830,  0x58, 0x78, 0x98, 0x954;
 
 	int lineid: "Disrupt_b64.dll", 0x3940438, 0x20;
 	
@@ -31,16 +27,12 @@ state("Watch_Dogs" , "v1.06.329 Steam Latest")
 	int XP: "Disrupt_b64.dll", 0x3BDB920, 0x90, 0x18, 0xAA8;
 	
 	int act1mainmissions: "Disrupt_b64.dll", 0x3B70098, 0x10, 0x78, 0x98, 0xEC4;
-	int act1mainmissions2: "Disrupt_b64.dll", 0x3B70098, 0x10, 0x78, 0x98, 0xC24;
-
+	
 	int act2mainmissions: "Disrupt_b64.dll", 0x3B70098, 0x40, 0x48, 0x168, 0x3B4;
-	int act2mainmissions2: "Disrupt_b64.dll", 0x3B70098, 0x40, 0x48, 0x168, 0x2C4;
 
 	int act3mainmissions: "Disrupt_b64.dll", 0x3B70098, 0x40, 0x48, 0x1A0, 0x7D4;
-	int act3mainmissions2: "Disrupt_b64.dll", 0x3B70098, 0x40, 0x48, 0x1A0, 0x654;
 
 	int act4mainmissions: "Disrupt_b64.dll", 0x3B70098, 0x10, 0x48, 0x98, 0xB64;
-	int act4mainmissions2: "Disrupt_b64.dll", 0x3B70098, 0x10, 0x48, 0x98, 0x954;
 	
 	int lineid: "Disrupt_b64.dll", 0x3B5CAB8, 0x20;
 	
@@ -55,16 +47,12 @@ state("Watch_Dogs" , "v1.06.329 Uplay Latest")
 	int XP: "Disrupt_b64.dll", 0x3B59050, 0x40, 0x98, 0x248, 0xA8;
 
 	int act1mainmissions: "Disrupt_b64.dll", 0x3B91918, 0xE0, 0x1E8, 0x98, 0xEC4;
-	int act1mainmissions2: "Disrupt_b64.dll", 0x3B91918, 0xE0, 0x1E8, 0x98, 0xC24;
 
 	int act2mainmissions: "Disrupt_b64.dll", 0x3B91918, 0x110, 0x1F8, 0x168, 0x3B4;
-	int act2mainmissions2: "Disrupt_b64.dll", 0x3B91918, 0x110, 0x1F8, 0x168, 0x2C4;
 	
 	int act3mainmissions: "Disrupt_b64.dll", 0x3B91918, 0xE0, 0xC8, 0x18, 0x180, 0x98, 0x7D4;
-	int act3mainmissions2: "Disrupt_b64.dll", 0x3B91918, 0xE0, 0xC8, 0x18, 0x180, 0x98, 0x654;
 	
 	int act4mainmissions: "Disrupt_b64.dll", 0x3B91918, 0xE0, 0x1E8, 0x98, 0xB64;
-	int act4mainmissions2: "Disrupt_b64.dll", 0x3B91918, 0xE0, 0x1E8, 0x98, 0x954;
 	
 	int lineid: "Disrupt_b64.dll", 0x3B784F8, 0x20;
 	
@@ -94,9 +82,7 @@ startup{
     
     settings.Add("Remember", false, "Remember");
     settings.SetToolTip("Remember", "Splits after the cemetery cutscene in Act 1");
-    
-    settings.Add("Mixed 1.04 and Latest patch files", false, "Splitting for v1.04 patch.dat/.fat with Latest Steam or Uplay bin files");
-    settings.SetToolTip("Mixed 1.04 and Latest patch files", "Only tick this if you are using this specific combo");
+   
     
     Action<string> logDebug = (text) => {
         print("[Watch_Dogs Autosplitter | DEBUG] "+ text);
@@ -190,16 +176,16 @@ start{
 
 
 split{ 
-	if(current.act1mainmissions == old.act1mainmissions + 1 || settings["Mixed 1.04 and Latest patch files"] && current.act1mainmissions2 == old.act1mainmissions2 + 1)  //Aiden Story
+	if(current.act1mainmissions == old.act1mainmissions + 1)  //Aiden Story
 		return vars.isNotDoubleSplit();	
 
-	if(current.act2mainmissions == old.act2mainmissions + 1 || settings["Mixed 1.04 and Latest patch files"] && current.act2mainmissions2 == old.act2mainmissions2 + 1)  //Aiden Story
+	if(current.act2mainmissions == old.act2mainmissions + 1)  //Aiden Story
 		return vars.isNotDoubleSplit();	
 	
-	if(current.act3mainmissions == old.act3mainmissions + 1 || settings["Mixed 1.04 and Latest patch files"] && current.act3mainmissions2 == old.act3mainmissions2 + 1)   //Aiden Story
+	if(current.act3mainmissions == old.act3mainmissions + 1)   //Aiden Story
 		return vars.isNotDoubleSplit();	
 	
-	if(current.act4mainmissions == old.act4mainmissions + 1 || settings["Mixed 1.04 and Latest patch files"] && current.act4mainmissions2 == old.act4mainmissions2 + 1)   //Aiden Story
+	if(current.act4mainmissions == old.act4mainmissions + 1)   //Aiden Story
 		return vars.isNotDoubleSplit();
 		
 	if(current.lineid == 194143 && old.ending == 0 && current.ending == 1)    //Aiden Story Ending
@@ -222,7 +208,7 @@ split{
 	if(settings["Brandon Docks"] && current.lineid == 208307)  //Brandon Docks ctOS Control Center
 		return vars.isNotDoubleSplit(); 
 
-    	if(settings["The Wards"] && (current.act2mainmissions == 5 || current.act2mainmissions2 == 5) && current.XP == old.XP+500)   //The Wards ctOS Control Center
+    	if(settings["The Wards"] && (current.act2mainmissions == 5) && current.XP == old.XP+500)   //The Wards ctOS Control Center
 		return vars.isNotDoubleSplit(); 
 
     	if(settings["Mad Mile"] && current.lineid == 209437)    //Mad Mile ctOS Control Center
@@ -230,14 +216,11 @@ split{
 
     	if(settings["Pawnee"] && current.lineid == 219093)      //Pawnee ctOS Control Center
 		return vars.isNotDoubleSplit(); 
-
-	if(current.lineid == 10000025)                              //BB A1M1
-		return vars.isNotDoubleSplit();
 		
-	if(current.XP == old.XP + 250 && old.lineid == 10000063)   //BB A1M2
+	if(current.XP == old.XP + 250 && current.act1mainmissions < 1)   //BB A1M1 & BB A1M2
 		return vars.isNotDoubleSplit();								
 	
-	if(current.XP == old.XP + 500 && old.lineid == 10003082)   //BB A1M3
+	if(current.XP == old.XP + 500 && current.act1mainmissions < 1)   //BB A1M3
 		return vars.isNotDoubleSplit(); 
 
 	if(current.XP == old.XP + 600)               //BB A2M1
