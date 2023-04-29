@@ -20,6 +20,10 @@ state("Watch_Dogs" , "v1.04.497")
 	int ending: "Disrupt_b64.dll", 0x393EB78;
 	
 	int loading: "Disrupt_b64.dll", 0x39562CC;	
+
+	int lineIdIdx0: "Disrupt_b64.dll", 0x3940438, 0x8, 0x30;
+
+	int lineIdIdx1: "Disrupt_b64.dll", 0x3940438, 0x8, 0x70;
 }
 
 state("Watch_Dogs" , "v1.06.329 Steam Latest")
@@ -40,6 +44,9 @@ state("Watch_Dogs" , "v1.06.329 Steam Latest")
 	
 	int loading: "Disrupt_b64.dll", 0x3B7BAFC;
 	
+	int lineIdIdx0: "Disrupt_b64.dll", 0x3B5CAB8, 0x8, 0x30;
+
+	int lineIdIdx1: "Disrupt_b64.dll", 0x3B5CAB8, 0x8, 0x70;
 }
 
 state("Watch_Dogs" , "v1.06.329 Uplay Latest")
@@ -59,13 +66,18 @@ state("Watch_Dogs" , "v1.06.329 Uplay Latest")
 	int ending: "Disrupt_b64.dll", 0x3B76B28;
 	
 	int loading: "Disrupt_b64.dll", 0x3B94ACC;
-	
+
+	int lineIdIdx0: "Disrupt_b64.dll", 0x3B784F8, 0x8, 0x30;
+
+	int lineIdIdx1: "Disrupt_b64.dll", 0x3B784F8, 0x8, 0x70;
 }
 
 
 startup{
 
     vars.stopwatch = new Stopwatch();
+    vars.line0Stopwatch = new Stopwatch();
+    vars.line1Stopwatch = new Stopwatch();
     
     settings.Add ("CTOS Control Centers", false, "CTOS Control Centers");
     settings.SetToolTip("CTOS Control Centers", "Splits after completing a ctOS control center.");
@@ -82,6 +94,9 @@ startup{
     
     settings.Add("Remember", false, "Remember");
     settings.SetToolTip("Remember", "Splits after the cemetery cutscene in Act 1");
+
+    settings.Add("Log Dialog", false, "Log Dialog");
+    settings.SetToolTip("Log Dialog", "Log line IDs and their duration in milliseconds as they occurred in the run to LineLog.txt next to your LiveSplit.exe");
    
     
     Action<string> logDebug = (text) => {
@@ -119,6 +134,43 @@ startup{
 		return !isDoubleSplit;
 	};
 	vars.isNotDoubleSplit = isNotDoubleSplit;
+
+	Action<string> logLine = (text) => {
+		vars.logDebug("Writing line: " + text);
+		if (vars.lineLogFile == null) {
+			vars.lineLogFile = File.Open("LineLog.txt", FileMode.Append, FileAccess.Write, FileShare.ReadWrite);
+		}
+		byte[] line = new UTF8Encoding(true).GetBytes(text + "\r\n");
+		vars.lineLogFile.Write(line, 0, line.Length);
+	};
+	vars.lineLogFile = null;
+	vars.logLine = logLine;
+
+	Action<int, int, Stopwatch> detectLineChange = (oldLineId, newLineId, stopwatch) => {
+		// if (oldLineId != newLineId) {
+		// 	vars.logDebug("oldLineId:" + oldLineId + " newLineId:" + newLineId);
+		// }
+
+		if (oldLineId <= 0 && newLineId > 0) {
+			// no dialog -> dialog
+			stopwatch.Restart();
+		} else if (oldLineId > 0 && newLineId == -1) {
+			// dialog -> no dialog
+			vars.logLine(oldLineId + "\t" + stopwatch.ElapsedMilliseconds);
+		} else if (oldLineId != newLineId && oldLineId > 0 && newLineId > 0) {
+			// Dialog -> different dialog
+			vars.logLine(oldLineId + "\t" + stopwatch.ElapsedMilliseconds);
+			stopwatch.Restart();
+		}	
+	};
+	vars.detectLineChange = detectLineChange;
+}
+
+shutdown
+{
+	if (vars.lineLogFile != null) {
+		vars.lineLogFile.Close();
+	}
 }
 
 init{
@@ -153,25 +205,40 @@ isLoading
 
 update{
 
-        if(vars.stopwatch.ElapsedMilliseconds > 10000)
-	    vars.stopwatch.Reset();
+        if (vars.stopwatch.ElapsedMilliseconds > 10000) {
+	    	vars.stopwatch.Reset();
+		}
+
+		if (settings["Log Dialog"]) {
+			vars.detectLineChange(old.lineIdIdx0, current.lineIdIdx0, vars.line0Stopwatch);
+			vars.detectLineChange(old.lineIdIdx1, current.lineIdIdx1, vars.line1Stopwatch);
+		}
+		
 }
 
 
 start{
 
-	if(vars.stopwatch.ElapsedMilliseconds > 2000)
+	if (vars.stopwatch.ElapsedMilliseconds > 2000) {
 	    vars.stopwatch.Reset();
+	}
 
-        if(current.lineid == 46209)
-	{
-        vars.stopwatch.Start();
-	    if(vars.stopwatch.ElapsedMilliseconds > 300)    //Aiden Story Start
-		return true;
-    	}
+	if (current.lineid == 46209) {
+		vars.stopwatch.Start();
+		if(vars.stopwatch.ElapsedMilliseconds > 300) {  //Aiden Story Start
+			if(settings["Log Dialog"]) {
+				vars.logLine("### Starting new run ###");
+			}
+			return true;
+		}
+	}
 		
-	if(current.lineid == 10004649)   //Bad Blood Start
+	if (current.lineid == 10004649) { //Bad Blood Start
+		if(settings["Log Dialog"]) {
+			vars.logLine("### Starting new run ###");
+		}
 		return true;
+	}
 }
 
 
