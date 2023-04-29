@@ -205,10 +205,11 @@ isLoading
 
 update{
 
-        if(vars.stopwatch.ElapsedMilliseconds > 10000)
-	    vars.stopwatch.Reset();
+        if (vars.stopwatch.ElapsedMilliseconds > 10000) {
+	    	vars.stopwatch.Reset();
+		}
 
-		if(settings["Log Dialog"]) {
+		if (settings["Log Dialog"]) {
 			vars.detectLineChange(old.lineIdIdx0, current.lineIdIdx0, vars.line0Stopwatch);
 			vars.detectLineChange(old.lineIdIdx1, current.lineIdIdx1, vars.line1Stopwatch);
 		}
@@ -218,25 +219,26 @@ update{
 
 start{
 
-	if(vars.stopwatch.ElapsedMilliseconds > 2000)
+	if (vars.stopwatch.ElapsedMilliseconds > 2000) {
 	    vars.stopwatch.Reset();
+	}
 
-        if(current.lineid == 46209) {
-			vars.stopwatch.Start();
-			if(vars.stopwatch.ElapsedMilliseconds > 300) {  //Aiden Story Start
-				if(settings["Log Dialog"]) {
-					vars.logLine("### Starting new run ###");
-				}
-				return true;
+	if (current.lineid == 46209) {
+		vars.stopwatch.Start();
+		if(vars.stopwatch.ElapsedMilliseconds > 300) {  //Aiden Story Start
+			if(settings["Log Dialog"]) {
+				vars.logLine("### Starting new run ###");
 			}
+			return true;
 		}
+	}
 		
-	if(current.lineid == 10004649)   //Bad Blood Start
+	if (current.lineid == 10004649) { //Bad Blood Start
 		if(settings["Log Dialog"]) {
 			vars.logLine("### Starting new run ###");
 		}
 		return true;
-
+	}
 }
 
 
