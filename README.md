@@ -106,12 +106,6 @@ The XP memory values for the main game and Bad Blood are the same, but they are 
 2. A line id can be searched in cheat engine when a specific line is said in the game. Look for the memory address that changes line ids after each line is said/shown. Add that to your addresslist and pointer scan. 
 3. Repeat step 2 (Rescan once to narrow down on a lone pointer path with the last offset being 20). 
 
-## Line ID indexes (for line log)
-The line log line ID addresses are different, as they reset to -1 when the dialog is finished, which is necessary for timing the dialog length. We only use the first 2 indexes, since 3 or more dialogs playing at once is extremely rare.
-1. Go to the second room in the intro, where the "Chicago Police--if there's anybody in here, identify yourselves." dialog occurs.
-2. Use the list of line IDs to search for the line as it appears. It should change to `FFFFFFFF` (-1 if signed int) when the lines finish. This is `lineIdIdx0`. Its offsets are `0x8, 0x30`.
-3. Reload autosave and run to the room to the right to make the "Got a body here. Definitely a Viceroy. Here's the weapon, gunshot wounds--" dialog stack on the first one. Search for its line IDs to find `lineIdIdx1`. Its offsets are `0x8, 0x70`.
-
 ### Ending Variable
 This is a static address that changes in value from 0 to 1 when you shoot Damien, but it does not only change value for that instance. It is used along with ```lineid``` to split at the ending of WD1 when you shoot Damien. 
 
