@@ -142,6 +142,7 @@ startup{
 		}
 		byte[] line = new UTF8Encoding(true).GetBytes(text + "\r\n");
 		vars.lineLogFile.Write(line, 0, line.Length);
+		vars.lineLogFile.Flush(true);
 	};
 	vars.lineLogFile = null;
 	vars.logLine = logLine;
@@ -169,7 +170,8 @@ startup{
 shutdown
 {
 	if (vars.lineLogFile != null) {
-		vars.lineLogFile.Close();
+		vars.lineLogFile.Dispose();
+		vars.lineLogFile = null;
 	}
 }
 
