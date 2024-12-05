@@ -37,6 +37,12 @@ state("Watch_Dogs" , "v1.06.329 Steam Latest")
 	int act3mainmissions: "Disrupt_b64.dll", 0x3B70098, 0x40, 0x48, 0x1A0, 0x7D4;
 
 	int act4mainmissions: "Disrupt_b64.dll", 0x3B70098, 0x10, 0x48, 0x98, 0xB64;
+
+	int badbloodact1: "Disrupt_b64.dll", 0x3B78918, 0x110, 0x1F8, 0x98, 0x2F4;
+	
+	int badbloodact2: "Disrupt_b64.dll", 0x3B78918, 0xE0, 0x1E8, 0x98, 0x54;
+	
+	int badbloodact3: "Disrupt_b64.dll", 0x3B70098, 0x10, 0x48, 0x98, 0x1D4;
 	
 	int lineid: "Disrupt_b64.dll", 0x3B5CAB8, 0x20;
 	
@@ -47,6 +53,28 @@ state("Watch_Dogs" , "v1.06.329 Steam Latest")
 	int lineIdIdx0: "Disrupt_b64.dll", 0x3B5CAB8, 0x8, 0x30;
 
 	int lineIdIdx1: "Disrupt_b64.dll", 0x3B5CAB8, 0x8, 0x70;
+
+	int hotspots:  "Disrupt_b64.dll", 0x3BE3738, 0x18, 0x180, 0x98, 0x84;
+
+	int ctosbreach: "Disrupt_b64.dll", 0x3B70098, 0x10, 0x48, 0x98, 0xC54;
+	
+	int ctostower: "Disrupt_b64.dll", 0x3B70098, 0x10, 0x78, 0x98, 0x324;
+	
+	int privacyinvasion: "Disrupt_b64.dll", 0x3BE3738, 0x18, 0x3A0, 0x98, 0xE64;
+
+	int songsneak: "Disrupt_b64.dll", 0x3BE3738, 0x18, 0x180, 0x98, 0xBC4;
+
+	int weapontrade: "Disrupt_b64.dll", 0x3B78918, 0x110, 0x1F8, 0x98, 0x1A4;
+
+	int missingpersons: "Disrupt_b64.dll", 0x3B70098, 0x10, 0x48, 0x98, 0xE34;
+
+	int qrcodes: "Disrupt_b64.dll", 0x3B70098, 0x10, 0x78, 0x98, 0x9E4;
+
+	int burnerphones:  "Disrupt_b64.dll", 0x3B70098, 0x40, 0x48, 0x98, 0xAA4;
+
+	int humantraffic: "Disrupt_b64.dll", 0x3B70098, 0x10, 0x78, 0x98, 0xFB4;
+
+	int fixer: "Disrupt_b64.dll", 0x3B70098, 0x10, 0x48, 0x98, 0xF24;
 }
 
 state("Watch_Dogs" , "v1.06.329 Uplay Latest")
@@ -60,6 +88,12 @@ state("Watch_Dogs" , "v1.06.329 Uplay Latest")
 	int act3mainmissions: "Disrupt_b64.dll", 0x3B91918, 0xE0, 0xC8, 0x18, 0x180, 0x98, 0x7D4;
 	
 	int act4mainmissions: "Disrupt_b64.dll", 0x3B91918, 0xE0, 0x1E8, 0x98, 0xB64;
+
+	int badbloodact1: "Disrupt_b64.dll", 0x3B91918, 0x110, 0x1F8, 0x98, 0x2F4;
+	
+	int badbloodact2: "Disrupt_b64.dll", 0x3B91918, 0xE0, 0x1E8, 0x98, 0x54;
+
+	int badbloodact3: "Disrupt_b64.dll", 0x3B91918, 0x10, 0x48, 0x98, 0x1D4;
 	
 	int lineid: "Disrupt_b64.dll", 0x3B784F8, 0x20;
 	
@@ -70,6 +104,9 @@ state("Watch_Dogs" , "v1.06.329 Uplay Latest")
 	int lineIdIdx0: "Disrupt_b64.dll", 0x3B784F8, 0x8, 0x30;
 
 	int lineIdIdx1: "Disrupt_b64.dll", 0x3B784F8, 0x8, 0x70;
+
+	int hotspots:  "Disrupt_b64.dll", 0x3B91918, 0x110, 0x1F8, 0x98, 0x84;
+
 }
 
 
@@ -125,7 +162,7 @@ startup{
 		bool isDoubleSplit = false;
 		if (vars.lastSplitTime != null) {
 			System.TimeSpan ts = System.DateTime.Now - vars.lastSplitTime;
-			if (ts.TotalSeconds < 20) {
+			if (ts.TotalSeconds < 5) {
 				isDoubleSplit = true;
 				vars.logDebug("Double split detected!");
 			}
@@ -286,27 +323,49 @@ split{
     	if(settings["Pawnee"] && current.lineid == 219093)      //Pawnee ctOS Control Center
 		return vars.isNotDoubleSplit(); 
 		
-	if(current.XP == old.XP + 250 && current.act1mainmissions < 1)   //BB A1M1 & BB A1M2
-		return vars.isNotDoubleSplit();								
-	
-	if(current.XP == old.XP + 500 && current.act1mainmissions < 1)   //BB A1M3
-		return vars.isNotDoubleSplit(); 
-
-	if(current.XP == old.XP + 600)               //BB A2M1
+	if(current.badbloodact1 == old.badbloodact1 + 1)   //BB Act 1 Main Missions
 		return vars.isNotDoubleSplit();
 
-	if(current.XP == old.XP + 650)               //BB A2M2
-		return vars.isNotDoubleSplit();
-	
-	if(current.XP == old.XP + 800)               //BB A2M3 & BB A2M4
-		return vars.isNotDoubleSplit();
-	
-	if(current.XP == old.XP + 1000)              //BB A3M1
+	if(current.badbloodact2 == old.badbloodact2 + 1)   //BB Act 2 Main Missions
 		return vars.isNotDoubleSplit();
 
-	if(current.XP == old.XP + 1500)              //BB A3M2
+	if(current.badbloodact3 == old.badbloodact3 + 1)   //BB Act 3 Main Missions
+		return vars.isNotDoubleSplit();
+
+	if(current.hotspots == old.hotspots + 1)      //City Hotspots
+		return vars.isNotDoubleSplit();
+
+	if(current.ctosbreach == old.ctosbreach + 1)      //ctOS Breaches
+		return vars.isNotDoubleSplit();
+
+	if(current.ctostower == old.ctostower + 1)      //ctOS Towers
+		return vars.isNotDoubleSplit();
+
+	if(current.privacyinvasion == old.privacyinvasion + 1)      //Privacy Invasions
+		return vars.isNotDoubleSplit();
+	
+	if(current.songsneak == old.songsneak + 1)      //SongSneaks
+		return vars.isNotDoubleSplit();
+
+	if(current.weapontrade == old.weapontrade + 1)      //Weapons Trade
+		return vars.isNotDoubleSplit();
+
+	if(current.missingpersons == old.missingpersons + 1)      //Missing Persons
+		return vars.isNotDoubleSplit();
+
+	if(current.qrcodes == old.qrcodes + 1)      //QR Codes
+		return vars.isNotDoubleSplit();
+
+	if(current.burnerphones == old.burnerphones + 1)      //Burner Phones
+		return vars.isNotDoubleSplit();
+
+	if(current.humantraffic == old.humantraffic + 1)      //Human Traffic
+		return vars.isNotDoubleSplit();
+
+	if(current.fixer == old.fixer + 1 && current.fixer == 40)       //Fixer Contracts Complete
 		return vars.isNotDoubleSplit();
 }
+
 
 reset{
 
