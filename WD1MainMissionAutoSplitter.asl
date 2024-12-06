@@ -139,7 +139,7 @@ startup{
     settings.Add("Log Dialog", false, "Log Dialog");
     settings.SetToolTip("Log Dialog", "Log line IDs and their duration in milliseconds as they occurred in the run to LineLog.txt next to your LiveSplit.exe");
    
-    settings.Add (100%", false, "100%");
+    settings.Add ("100%", false, "100%");
 
     settings.CurrentDefaultParent = "100%";
     settings.Add("Hotspots", false, "Hotspots");
@@ -154,13 +154,13 @@ startup{
 	settings.Add("Privacy Invasions", false, "Privacy Invasions");
     settings.SetToolTip("Privacy Invasions", "Splits for each privacy invasion done");
 
-	settings.Add(SongSneak", false, "SongSneak");
+	settings.Add("SongSneak", false, "SongSneak");
     settings.SetToolTip("SongSneak", "Splits for each SongSneak done");
 
 	settings.Add("Weapons Trade", false, "Weapons Trade");
     settings.SetToolTip("Weapons Trade", "Splits for each weapons trade done");
 
-	settings.Add(Missing Persons", false, "Missing Persons");
+	settings.Add("Missing Persons", false, "Missing Persons");
     settings.SetToolTip("Missing Persons", "Splits for each missing persons done");
 
 	settings.Add("QR Codes", false, "QR Codes");
