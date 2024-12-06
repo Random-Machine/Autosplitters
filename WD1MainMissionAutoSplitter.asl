@@ -74,6 +74,10 @@ state("Watch_Dogs" , "v1.06.329 Steam Latest")
 
 	int humantraffic: "Disrupt_b64.dll", 0x3B70098, 0x10, 0x78, 0x98, 0xFB4;
 
+	int drinkinggame: "Disrupt_b64.dll" 0x3B70098, 0x10, 0x78, 0x98, 0xEF4;
+
+	int shellgame: "Disrupt_b64.dll", 0x3B70098, 0x10, 0x48, 0x98, 0x5F4;
+
 	int fixer: "Disrupt_b64.dll", 0x3B70098, 0x10, 0x48, 0x98, 0xF24;
 }
 
@@ -135,6 +139,47 @@ startup{
     settings.Add("Log Dialog", false, "Log Dialog");
     settings.SetToolTip("Log Dialog", "Log line IDs and their duration in milliseconds as they occurred in the run to LineLog.txt next to your LiveSplit.exe");
    
+    settings.Add (100%", false, "100%");
+
+    settings.CurrentDefaultParent = "100%";
+    settings.Add("Hotspots", false, "Hotspots");
+    settings.SetToolTip("Hotspots", "Splits for each hotspot obtained");
+
+	settings.Add("ctOS Breaches", false, "ctOS Breaches");
+    settings.SetToolTip("ctOS Breaches", "Splits for each ctOS breach done");
+
+	settings.Add("ctOS Towers", false, "ctOS Towers");
+    settings.SetToolTip("ctOS Towers", "Splits for each ctOS Tower done");
+
+	settings.Add("Privacy Invasions", false, "Privacy Invasions");
+    settings.SetToolTip("Privacy Invasions", "Splits for each privacy invasion done");
+
+	settings.Add(SongSneak", false, "SongSneak");
+    settings.SetToolTip("SongSneak", "Splits for each SongSneak done");
+
+	settings.Add("Weapons Trade", false, "Weapons Trade");
+    settings.SetToolTip("Weapons Trade", "Splits for each weapons trade done");
+
+	settings.Add(Missing Persons", false, "Missing Persons");
+    settings.SetToolTip("Missing Persons", "Splits for each missing persons done");
+
+	settings.Add("QR Codes", false, "QR Codes");
+    settings.SetToolTip("QR Codes", "Splits for each QR code done");
+
+	settings.Add("Burner Phones", false, "Burner Phones");
+    settings.SetToolTip("Burner Phones", "Splits for each burner phone done");
+
+	settings.Add("Human Traffic", false, "Human Traffic");
+    settings.SetToolTip("Human Traffic", "Splits for each human trafficking location done");
+
+	settings.Add("Drinking Game", false, "Drinking Game");
+    settings.SetToolTip("Drinking Game", "Splits for each drinking game done");
+
+	settings.Add("Shell Game", false, "Shell Game");
+    settings.SetToolTip("Shell Game", "Splits for each shell game done");
+
+	settings.Add("Fixer Contracts", false, "Fixer Contracts");
+    settings.SetToolTip("Fixer Contracts", "Splits after the 40th fixer contract is completed");
     
     Action<string> logDebug = (text) => {
         print("[Watch_Dogs Autosplitter | DEBUG] "+ text);
@@ -332,40 +377,45 @@ split{
 	if(current.badbloodact3 == old.badbloodact3 + 1)   //BB Act 3 Main Missions
 		return vars.isNotDoubleSplit();
 
-	if(current.hotspots == old.hotspots + 1)      //City Hotspots
+	if(settings["Hotspots"] && current.hotspots == old.hotspots + 1 )      //City Hotspots
 		return vars.isNotDoubleSplit();
 
-	if(current.ctosbreach == old.ctosbreach + 1)      //ctOS Breaches
+	if(settings["ctOS Breaches"] && current.ctosbreach == old.ctosbreach + 1)      //ctOS Breaches
 		return vars.isNotDoubleSplit();
 
-	if(current.ctostower == old.ctostower + 1)      //ctOS Towers
+	if(settings["ctOS Towers"] && current.ctostower == old.ctostower + 1)      //ctOS Towers
 		return vars.isNotDoubleSplit();
 
-	if(current.privacyinvasion == old.privacyinvasion + 1)      //Privacy Invasions
+	if(settings["Privacy Invasions"] && current.privacyinvasion == old.privacyinvasion + 1)      //Privacy Invasions
 		return vars.isNotDoubleSplit();
 	
-	if(current.songsneak == old.songsneak + 1)      //SongSneaks
+	if(settings["Weapons Trade"] && current.weapontrade == old.weapontrade + 1)      //Weapons Trade
 		return vars.isNotDoubleSplit();
 
-	if(current.weapontrade == old.weapontrade + 1)      //Weapons Trade
+	if(settings["Missing Persons"] && current.missingpersons == old.missingpersons + 1)      //Missing Persons
 		return vars.isNotDoubleSplit();
 
-	if(current.missingpersons == old.missingpersons + 1)      //Missing Persons
+	if(settings["QR Codes"] && current.qrcodes == old.qrcodes + 1)      //QR Codes
 		return vars.isNotDoubleSplit();
 
-	if(current.qrcodes == old.qrcodes + 1)      //QR Codes
+	if(settings["Burner Phones"] && current.burnerphones == old.burnerphones + 1)      //Burner Phones
 		return vars.isNotDoubleSplit();
 
-	if(current.burnerphones == old.burnerphones + 1)      //Burner Phones
+	if(settings["Human Traffic"] && current.humantraffic == old.humantraffic + 1)      //Human Traffic
 		return vars.isNotDoubleSplit();
 
-	if(current.humantraffic == old.humantraffic + 1)      //Human Traffic
+	if(settings["Drinking Game"] && current.drinkinggame == old.drinkinggame + 1)       //Drinking Game
 		return vars.isNotDoubleSplit();
 
-	if(current.fixer == old.fixer + 1 && current.fixer == 40)       //Fixer Contracts Complete
+	if(settings["SongSneak"] && current.songsneak == old.songsneak + 1)       //Song Sneaks
+		return vars.isNotDoubleSplit();
+
+	if(settings["Shell Game"] && current.shellgame == old.shellgame + 1)       //Shell Game
+		return vars.isNotDoubleSplit();
+
+	if(settings["Fixer Contracts"] && current.fixer == old.fixer + 1 && current.fixer == 40)       //Fixer Contracts Complete
 		return vars.isNotDoubleSplit();
 }
-
 
 reset{
 
