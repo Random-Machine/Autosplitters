@@ -410,8 +410,11 @@ split{
 	if(settings["SongSneak"] && current.songsneak == old.songsneak + 1)       //Song Sneaks
 		return vars.isNotDoubleSplit();
 
-	if(settings["Shell Game"] && current.shellgame == old.shellgame + 1)       //Shell Game
-		return vars.isNotDoubleSplit();
+	if(settings["Shell Game"])                                                                                            //Shell Game
+	{
+		if(current.shellgame == old.shellgame + 1 || current.shellgame == old.shellgame + 2 || current.shellgame == old.shellgame + 3)
+			return vars.isNotDoubleSplit();
+	}
 
 	if(settings["Fixer Contracts"] && current.fixer == old.fixer + 1 && current.fixer == 40)       //Fixer Contracts Complete
 		return vars.isNotDoubleSplit();
