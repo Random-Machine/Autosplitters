@@ -136,6 +136,9 @@ startup{
     settings.Add("Remember", false, "Remember");
     settings.SetToolTip("Remember", "Splits after the cemetery cutscene in Act 1");
 
+    settings.Add("Any% Ending", true, "Any% Ending");
+    settings.SetToolTip("Any% Ending", "Splits when Aiden shoots Damien at the end of the game");
+
     settings.Add("Log Dialog", false, "Log Dialog");
     settings.SetToolTip("Log Dialog", "Log line IDs and their duration in milliseconds as they occurred in the run to LineLog.txt next to your LiveSplit.exe");
    
@@ -145,40 +148,40 @@ startup{
     settings.Add("Hotspots", false, "Hotspots");
     settings.SetToolTip("Hotspots", "Splits for each hotspot obtained");
 
-	settings.Add("ctOS Breaches", false, "ctOS Breaches");
+    settings.Add("ctOS Breaches", false, "ctOS Breaches");
     settings.SetToolTip("ctOS Breaches", "Splits for each ctOS breach done");
 
-	settings.Add("ctOS Towers", false, "ctOS Towers");
+    settings.Add("ctOS Towers", false, "ctOS Towers");
     settings.SetToolTip("ctOS Towers", "Splits for each ctOS Tower done");
 
-	settings.Add("Privacy Invasions", false, "Privacy Invasions");
+    settings.Add("Privacy Invasions", false, "Privacy Invasions");
     settings.SetToolTip("Privacy Invasions", "Splits for each privacy invasion done");
 
-	settings.Add("SongSneak", false, "SongSneak");
+    settings.Add("SongSneak", false, "SongSneak");
     settings.SetToolTip("SongSneak", "Splits for each SongSneak done");
 
-	settings.Add("Weapons Trade", false, "Weapons Trade");
+    settings.Add("Weapons Trade", false, "Weapons Trade");
     settings.SetToolTip("Weapons Trade", "Splits for each weapons trade done");
 
-	settings.Add("Missing Persons", false, "Missing Persons");
+    settings.Add("Missing Persons", false, "Missing Persons");
     settings.SetToolTip("Missing Persons", "Splits for each missing persons done");
 
-	settings.Add("QR Codes", false, "QR Codes");
+    settings.Add("QR Codes", false, "QR Codes");
     settings.SetToolTip("QR Codes", "Splits for each QR code done");
 
-	settings.Add("Burner Phones", false, "Burner Phones");
+    settings.Add("Burner Phones", false, "Burner Phones");
     settings.SetToolTip("Burner Phones", "Splits for each burner phone done");
 
-	settings.Add("Human Traffic", false, "Human Traffic");
+    settings.Add("Human Traffic", false, "Human Traffic");
     settings.SetToolTip("Human Traffic", "Splits for each human trafficking location done");
 
-	settings.Add("Drinking Game", false, "Drinking Game");
+    settings.Add("Drinking Game", false, "Drinking Game");
     settings.SetToolTip("Drinking Game", "Splits for each drinking game done");
 
-	settings.Add("Shell Game", false, "Shell Game");
+    settings.Add("Shell Game", false, "Shell Game");
     settings.SetToolTip("Shell Game", "Splits for each shell game done");
 
-	settings.Add("Fixer Contracts", false, "Fixer Contracts");
+    settings.Add("Fixer Contracts", false, "Fixer Contracts");
     settings.SetToolTip("Fixer Contracts", "Splits after the 40th fixer contract is completed");
     
     Action<string> logDebug = (text) => {
@@ -339,8 +342,11 @@ split{
 	if(current.act4mainmissions == old.act4mainmissions + 1)   //Aiden Story
 		return vars.isNotDoubleSplit();
 		
-	if(current.lineid == 194143 && old.ending == 0 && current.ending == 1)    //Aiden Story Ending
-        	return vars.isNotDoubleSplit();
+	if(settings["Any% Ending"])
+	{
+		if(current.lineid == 194143 && old.ending == 0 && current.ending == 1)    //Aiden Story Ending
+        		return vars.isNotDoubleSplit();
+	}
 	
 	if(settings["Hacking Contract"] && current.lineid == 217543)
     	{
