@@ -210,7 +210,7 @@ startup{
 		bool isDoubleSplit = false;
 		if (vars.lastSplitTime != null) {
 			System.TimeSpan ts = System.DateTime.Now - vars.lastSplitTime;
-			if (ts.TotalSeconds < 10) {
+			if (ts.TotalSeconds < 15) {
 				isDoubleSplit = true;
 				vars.logDebug("Double split detected!");
 			}
