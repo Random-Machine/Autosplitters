@@ -210,7 +210,7 @@ startup{
 		bool isDoubleSplit = false;
 		if (vars.lastSplitTime != null) {
 			System.TimeSpan ts = System.DateTime.Now - vars.lastSplitTime;
-			if (ts.TotalSeconds < 5) {
+			if (ts.TotalSeconds < 10) {
 				isDoubleSplit = true;
 				vars.logDebug("Double split detected!");
 			}
@@ -384,46 +384,46 @@ split{
 		return vars.isNotDoubleSplit();
 
 	if(settings["Hotspots"] && current.hotspots == old.hotspots + 1 )      //City Hotspots
-		return vars.isNotDoubleSplit();
+		return true;
 
 	if(settings["ctOS Breaches"] && current.ctosbreach == old.ctosbreach + 1)      //ctOS Breaches
-		return vars.isNotDoubleSplit();
+		return true;
 
 	if(settings["ctOS Towers"] && current.ctostower == old.ctostower + 1)      //ctOS Towers
-		return vars.isNotDoubleSplit();
+		return true;
 
 	if(settings["Privacy Invasions"] && current.privacyinvasion == old.privacyinvasion + 1)      //Privacy Invasions
-		return vars.isNotDoubleSplit();
+		return true;
 	
 	if(settings["Weapons Trade"] && current.weapontrade == old.weapontrade + 1)      //Weapons Trade
-		return vars.isNotDoubleSplit();
+		return true;
 
 	if(settings["Missing Persons"] && current.missingpersons == old.missingpersons + 1)      //Missing Persons
-		return vars.isNotDoubleSplit();
+		return true;
 
 	if(settings["QR Codes"] && current.qrcodes == old.qrcodes + 1)      //QR Codes
-		return vars.isNotDoubleSplit();
+		return true;
 
 	if(settings["Burner Phones"] && current.burnerphones == old.burnerphones + 1)      //Burner Phones
-		return vars.isNotDoubleSplit();
+		return true;
 
 	if(settings["Human Traffic"] && current.humantraffic == old.humantraffic + 1)      //Human Traffic
-		return vars.isNotDoubleSplit();
+		return true;
 
 	if(settings["Drinking Game"] && current.drinkinggame == old.drinkinggame + 1)       //Drinking Game
-		return vars.isNotDoubleSplit();
+		return true;
 
 	if(settings["SongSneak"] && current.songsneak == old.songsneak + 1)       //Song Sneaks
-		return vars.isNotDoubleSplit();
+		return true;
 
 	if(settings["Shell Game"])                                                                                            //Shell Game
 	{
 		if(current.shellgame == old.shellgame + 1 || current.shellgame == old.shellgame + 2 || current.shellgame == old.shellgame + 3)
-			return vars.isNotDoubleSplit();
+			return true;
 	}
 
 	if(settings["Fixer Contracts"] && current.fixer == old.fixer + 1 && current.fixer == 40)       //Fixer Contracts Complete
-		return vars.isNotDoubleSplit();
+		return true;
 }
 
 reset{
