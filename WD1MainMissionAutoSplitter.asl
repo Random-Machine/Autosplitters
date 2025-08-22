@@ -79,6 +79,8 @@ state("Watch_Dogs" , "v1.06.329 Steam Latest")
 	int shellgame: "Disrupt_b64.dll", 0x3B70098, 0x10, 0x48, 0x98, 0x5F4;
 
 	int fixer: "Disrupt_b64.dll", 0x3B70098, 0x10, 0x48, 0x98, 0xF24;
+
+	int audiologs: "Disrupt_b64.dll", 0x03B70098, 0x48, 0x10, 0x108, 0x38, 0x10, 0x80;
 }
 
 state("Watch_Dogs" , "v1.06.329 Uplay Latest")
@@ -183,6 +185,9 @@ startup{
 
     settings.Add("Fixer Contracts", false, "Fixer Contracts");
     settings.SetToolTip("Fixer Contracts", "Splits after the 40th fixer contract is completed");
+
+	settings.Add("Audio Logs", false, "Audio Logs");
+    settings.SetToolTip("Audio Logs", "Splits for each audio log completed");
     
     Action<string> logDebug = (text) => {
         print("[Watch_Dogs Autosplitter | DEBUG] "+ text);
@@ -424,6 +429,10 @@ split{
 
 	if(settings["Fixer Contracts"] && current.fixer == old.fixer + 1 && current.fixer == 40)       //Fixer Contracts Complete
 		return true;
+
+	if(settings["Audio Logs"] && current.audiologs == old.audiologs + 1)       //Audio Logs
+		return true;
+
 }
 
 reset{
@@ -431,3 +440,4 @@ reset{
   	if(current.lineid == 46208)
 		return true; 
 }
+
