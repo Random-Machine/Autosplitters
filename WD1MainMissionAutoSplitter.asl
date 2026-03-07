@@ -71,7 +71,7 @@ state("Watch_Dogs" , "v1.05.324")
 
 	int money: "Disrupt_b64.dll", 0x3A9E980, 0x9C;
 
-	int BB Fixer: "Disrupt_b64.dll", 0x3A3ED88, 0x10, 0x48, 0x98, 0x264;
+	int BB_Fixer: "Disrupt_b64.dll", 0x3A3ED88, 0x10, 0x48, 0x98, 0x264;
 
 	int CSC: "Disrupt_b64.dll", 0x3A3ED88, 0x10, 0x48, 0x98, 0xD74;
 
@@ -509,7 +509,7 @@ split{
 	if (settings["Pawnee Militia"] && current.PM == 19) 
 		return vars.isNotDoubleSplit();
 
-	if (settings["BB Fixers"] && current.BB Fixer == 19) 
+	if (settings["BB Fixers"] && current.BB_Fixer == 19) 
 		return vars.isNotDoubleSplit();
 }
 
@@ -518,6 +518,7 @@ reset{
   	if(current.lineid == 46208)
 		return true; 
 }
+
 
 
 
