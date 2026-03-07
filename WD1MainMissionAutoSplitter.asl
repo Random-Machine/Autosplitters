@@ -71,6 +71,8 @@ state("Watch_Dogs" , "v1.05.324")
 
 	int money: "Disrupt_b64.dll", 0x3A9E980, 0x9C;
 
+	int BB Fixer: "Disrupt_b64.dll", 0x3A3ED88, 0x10, 0x48, 0x98, 0x264;
+
 	int CSC: "Disrupt_b64.dll", 0x3A3ED88, 0x10, 0x48, 0x98, 0xD74;
 
 	int PM: "Disrupt_b64.dll", 0x3A3ED88, 0x10, 0x48, 0x98, 0x8C4;
@@ -239,8 +241,17 @@ startup{
     settings.Add("Fixer Contracts", false, "Fixer Contracts");
     settings.SetToolTip("Fixer Contracts", "Splits after the 40th fixer contract is completed");
 
+	settings.CurrentDefaultParent = null;
+
 	settings.Add("Audio Logs", false, "Audio Logs");
     settings.SetToolTip("Audio Logs", "Splits for each audio log completed");
+
+	settings.CurrentDefaultParent = null;
+	settings.Add("Bad Blood 100%", false, "Bad Blood 100%"); // Bad Blood 100%
+	settings.CurrentDefaultParent = "Bad Blood 100%";
+	settings.Add("Chicago South Club", false, "Chicago South Club");
+	settings.Add("Pawnee Militia", false, "Pawnee Militia");
+	settings.Add("BB Fixers", false, "BB Fixers");
     
 	Action<string> logDebug = (text) => {
         print("[Watch_Dogs Autosplitter | DEBUG] "+ text);
@@ -492,6 +503,14 @@ split{
 	if(settings["Audio Logs"] && current.audiologs == old.audiologs + 1)       //Audio Logs
 		return true;
 
+	if (settings["Chicago South Club"] && current.CSC == 19) 
+		return vars.isNotDoubleSplit();
+
+	if (settings["Pawnee Militia"] && current.PM == 19) 
+		return vars.isNotDoubleSplit();
+
+	if (settings["BB Fixers"] && current.BB Fixer == 19) 
+		return vars.isNotDoubleSplit();
 }
 
 reset{
@@ -499,5 +518,6 @@ reset{
   	if(current.lineid == 46208)
 		return true; 
 }
+
 
 
