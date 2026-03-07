@@ -3,6 +3,26 @@ state("Watch_Dogs")
     // unknown/default version
 }
 
+state("Watch_Dogs" , "v1.03.483") 
+{
+	int XP: "Disrupt_b64.dll", 0x38DA6D0, 0xA8;
+
+	int act1mainmissions: "Disrupt_b64.dll", 0x3937690, 0x10, 0x48, 0x98, 0xC24;
+
+	int act2mainmissions: "Disrupt_b64.dll", 0x3937690, 0x10, 0x48, 0x98, 0x2C4;
+
+	int act3mainmissions: "Disrupt_b64.dll", 0x3937690, 0x10, 0x48, 0x98, 0x654;
+	
+	int act4mainmissions: "Disrupt_b64.dll", 0x3937690, 0x10, 0x48, 0x98, 0x954;
+
+	int money: "Disrupt_b64.dll", 0x38DA6D0, 0x9C;
+
+	int lineid: "Disrupt_b64.dll", 0x3927298, 0x20;
+	
+	int loading: "Disrupt_b64.dll", 0x3932AE8, 0x860;
+
+}
+
 state("Watch_Dogs" , "v1.04.497") 
 {
 	int XP: "Disrupt_b64.dll", 0x396E038, 0x768, 0x0, 0x60, 0x8, 0xB8, 0x20;
@@ -26,9 +46,42 @@ state("Watch_Dogs" , "v1.04.497")
 	int lineIdIdx1: "Disrupt_b64.dll", 0x3940438, 0x8, 0x70;
 }
 
+
+state("Watch_Dogs" , "v1.05.324")
+{
+	int XP: "Disrupt_b64.dll", 0x3A9E980, 0xA8;
+
+	int lineid : "Disrupt_b64.dll", 0x3A2B678, 0x20;
+
+	int act1mainmissions: "Disrupt_b64.dll", 0x3A3ED88, 0x10, 0x48, 0x98, 0xEC4;
+
+	int act2mainmissions: "Disrupt_b64.dll", 0x3A3ED88, 0x10, 0x48, 0x98, 0x3B4;
+
+	int act3mainmissions: "Disrupt_b64.dll", 0x3A3ED88, 0x10, 0x48, 0x98, 0x7D4;
+
+	int act4mainmissions: "Disrupt_b64.dll", 0x3A3ED88, 0x10, 0x48, 0x98, 0xB64;
+
+	int badbloodact1: "Disrupt_b64.dll", 0x3A3ED88, 0x10, 0x48, 0x98, 0x2F4;
+	
+	int badbloodact2: "Disrupt_b64.dll", 0x3A3ED88, 0x10, 0x48, 0x98, 0x54;
+	
+	int badbloodact3: "Disrupt_b64.dll", 0x3A3ED88, 0x10, 0x48, 0x98, 0x1D4;
+
+	int audiologs: "Disrupt_b64.dll", 0x3A3ED88, 0x40, 0x30, 0x80;
+
+	int money: "Disrupt_b64.dll", 0x3A9E980, 0x9C;
+
+	int CSC: "Disrupt_b64.dll", 0x3A3ED88, 0x10, 0x48, 0x98, 0xD74;
+
+	int PM: "Disrupt_b64.dll", 0x3A3ED88, 0x10, 0x48, 0x98, 0x8C4;
+
+	int loading: "Disrupt_b64.dll", 0x3A38F70, 0xAE0;
+
+}	
+
 state("Watch_Dogs" , "v1.06.329 Steam Latest")
 {
-	int XP: "Disrupt_b64.dll", 0x3BDB920, 0x90, 0x18, 0xAA8;
+	int XP: "Disrupt_b64.dll", 0x3BDB920, 0x90, 0x18, 0xAA8; 
 	
 	int act1mainmissions: "Disrupt_b64.dll", 0x3B70098, 0x10, 0x78, 0x98, 0xEC4;
 	
@@ -189,7 +242,7 @@ startup{
 	settings.Add("Audio Logs", false, "Audio Logs");
     settings.SetToolTip("Audio Logs", "Splits for each audio log completed");
     
-    Action<string> logDebug = (text) => {
+	Action<string> logDebug = (text) => {
         print("[Watch_Dogs Autosplitter | DEBUG] "+ text);
     };
     vars.logDebug = logDebug;
@@ -272,10 +325,16 @@ init{
     string hash = vars.calcModuleHash(module);
     switch (hash)
     {
-        case "C3B1AD89FCCC74FE9C5BC5050A233308":
+       	case "9E1386FABFC8BBF80ABBA4E711C821E9":
+            version = "v1.03.483";
+            break;
+		case "C3B1AD89FCCC74FE9C5BC5050A233308":
             version = "v1.04.497";
             break;
-	case "1837A42D913BB7DAF94FEF3163BA615A":
+		case "E9A0943FA886050F2BD72552B41369DC":
+			version = "v1.05.324";
+            break;
+		case "1837A42D913BB7DAF94FEF3163BA615A":
             version = "v1.06.329 Steam Latest";
             break;    
         case "77D09E2A3DAAABBFEE4F3466F52A5794":
@@ -440,4 +499,5 @@ reset{
   	if(current.lineid == 46208)
 		return true; 
 }
+
 
