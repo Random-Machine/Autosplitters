@@ -28,7 +28,9 @@ The reset function works by using the ```lineid``` of one of Aiden's lines befor
 *You can turn on the load remover by setting comparison to game time. The timer pauses during the loading screens with the progress bars only. Currently, times for this game do not have loads removed, so you do not need to use this.*
 
 ## Supported Versions
+* v1.03.483
 * v1.04.497
+* v1.05.324
 * v1.06.329 - Steam Latest Update
 * v1.06.329 - Uplay/Epic Latest Update
 
